@@ -19,11 +19,11 @@ export const DateSelection = () => {
     return (
         <View className="space-y-4">
             {/* Title */}
-            <Text variant="h2" className="text-gray-800 font-bold">Select Date</Text>
+            <Text variant="h2" className="text-gray-800 font-medium">Select Date</Text>
 
             {/* Date List */}
             {/* Date List */}
-            <View className="flex-row flex-wrap justify-between gap-y-4">
+            <View className="flex-row flex-wrap justify-between gap-2">
                 {dates.map((item) => {
                     const isSelected = selectedDateId === item.id;
                     return (
