@@ -1,4 +1,4 @@
-import { Input, VisitorTypeCard } from '@/components/core';
+import { BottomTabNavigation, Input, VisitorTypeCard } from '@/components/core';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 import React, { useState } from 'react';
@@ -84,6 +84,18 @@ export default function ComponentShowcase() {
                     <Text variant="h2">Visitor Selection</Text>
                     <View className="items-center">
                         <VisitorTypeCard />
+                    </View>
+                </View>
+
+                {/* --- Section 4: Bottom Navigation --- */}
+                <View className="space-y-4">
+                    <Text variant="h2">Bottom Navigation</Text>
+                    <View className="items-center bg-gray-100 p-6 rounded-xl">
+                        {/* Simulating a bottom anchored view container */}
+                        <View className="w-full max-w-sm bg-white overflow-hidden shadow-lg rounded-b-2xl">
+
+                            <BottomTabNavigation />
+                        </View>
                     </View>
                 </View>
 
