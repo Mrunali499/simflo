@@ -1,4 +1,4 @@
-import { BottomTabNavigation, Button as CoreButton, DateSelection, Input, VisitorTypeCard } from '@/components/core';
+import { BottomTabNavigation, Button as CoreButton, DateSelection, Dropdown, Input, VisitorTypeCard } from '@/components/core';
 import { Text } from '@/components/ui/text';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -37,6 +37,20 @@ export default function ComponentShowcase() {
                                 inputClassName="w-full"
                             />
                         </View>
+                    </View>
+
+                    {/* --- Section: Dropdown --- */}
+                    <View className="space-y-4">
+                        <Text variant="h2">Dropdown Component</Text>
+                        <Dropdown
+                            label="Service Type"
+                            options={[
+                                { label: 'Plumbing', value: 'plumbing' },
+                                { label: 'Electrical', value: 'electrical' },
+                                { label: 'Cleaning', value: 'cleaning' },
+                            ]}
+                            onSelect={(val) => console.log(val)}
+                        />
                     </View>
 
                     {/* --- Section 3: Visitor Card --- */}
