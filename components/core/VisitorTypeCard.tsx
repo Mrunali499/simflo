@@ -13,7 +13,7 @@ const visitorTypes = [
 export const VisitorTypeCard = () => {
     return (
         <View
-            className="w-[331px] h-[254px] bg-white rounded-[20px] p-5 flex-row flex-wrap gap-x-[15px] gap-y-[20px] shadow-sm shadow-black/25 android:elevation-5"
+            className="w-[331px] md:w-full h-[254px] md:h-auto bg-white rounded-[20px] p-5 flex-row flex-wrap md:flex-nowrap gap-x-[15px] gap-y-[20px] md:justify-around shadow-sm shadow-black/25 android:elevation-5"
         >
             {visitorTypes.map((item) => (
                 <Pressable key={item.id} className="items-center w-[85px]">
