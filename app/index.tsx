@@ -1,5 +1,4 @@
-import { BottomTabNavigation, Input, VisitorTypeCard } from '@/components/core';
-import { Button } from '@/components/ui/button';
+import { BottomTabNavigation, Button as CoreButton, Input, VisitorTypeCard } from '@/components/core';
 import { Text } from '@/components/ui/text';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -42,42 +41,7 @@ export default function ComponentShowcase() {
                     </View>
                 </View>
 
-                {/* --- Section 2: Buttons --- */}
-                <View className="space-y-4">
-                    <Text variant="h2">Button Components</Text>
 
-                    {/* Example 1: Variants */}
-                    <View className="space-y-2">
-                        <Text variant="h4">1. Variants</Text>
-                        <View className="flex-row flex-wrap gap-3">
-                            <Button variant="default">
-                                <Text>Default</Text>
-                            </Button>
-                            <Button variant="destructive">
-                                <Text>Destructive</Text>
-                            </Button>
-                            <Button variant="outline">
-                                <Text>Outline</Text>
-                            </Button>
-                        </View>
-                    </View>
-
-                    {/* Example 2: Sizes & States */}
-                    <View className="space-y-2">
-                        <Text variant="h4">2. Sizes & States</Text>
-                        <View className="flex-row flex-wrap gap-3 items-center">
-                            <Button size="sm">
-                                <Text>Small</Text>
-                            </Button>
-                            <Button size="icon" variant="outline">
-                                <Text>Ok</Text>
-                            </Button>
-                            <Button disabled>
-                                <Text>Disabled</Text>
-                            </Button>
-                        </View>
-                    </View>
-                </View>
 
                 {/* --- Section 3: Visitor Card --- */}
                 <View className="space-y-4">
@@ -87,7 +51,15 @@ export default function ComponentShowcase() {
                     </View>
                 </View>
 
-                {/* --- Section 4: Bottom Navigation --- */}
+                {/* --- Section 4: Core Button --- */}
+                <View className="space-y-4">
+                    <Text variant="h2">Core Button</Text>
+                    <View>
+                        <CoreButton title="Continue" onPress={() => console.log('Pressed')} />
+                    </View>
+                </View>
+
+                {/* --- Section 5: Bottom Navigation --- */}
                 <View className="space-y-4">
                     <Text variant="h2">Bottom Navigation</Text>
                     <View className="items-center bg-gray-100 p-6 rounded-xl">
