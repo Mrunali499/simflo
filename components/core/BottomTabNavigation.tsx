@@ -13,7 +13,7 @@ export const BottomTabNavigation = () => {
     const [activeTab, setActiveTab] = useState('chat');
 
     return (
-        <View className="flex-row items-center justify-between bg-white px-10 py-4 border-t border-gray-100 w-full">
+        <View className="flex-row items-center justify-around bg-white py-4 border-t border-gray-100 w-full">
             {tabs.map((tab) => {
                 const isActive = activeTab === tab.id;
                 return (
@@ -26,7 +26,7 @@ export const BottomTabNavigation = () => {
                         <Image
                             source={tab.icon}
                             className={`${isActive ? 'w-7 h-7' : 'w-6 h-6'}`}
-                            tintColor={isActive ? '#7B54FA' : '#9CA3AF'} // Purple if active, Gray if inactive
+                            tintColor={isActive ? '#7B54FA' : '#9CA3AF'}
                             contentFit="contain"
                         />
                     </Pressable>
