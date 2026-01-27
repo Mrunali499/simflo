@@ -1,0 +1,35 @@
+import { Image } from 'expo-image';
+import React from 'react';
+import { Pressable, Text, View } from 'react-native';
+
+const visitorTypes = [
+    { id: 'guest', label: 'Guest', icon: require('@/assets/images/person.svg') },
+    { id: 'helper', label: 'Helper', icon: require('@/assets/images/handshake.svg') },
+    { id: 'delivery', label: 'Delivery', icon: require('@/assets/images/box.svg') },
+    { id: 'events', label: 'Events', icon: require('@/assets/images/calendar_month.svg') },
+    { id: 'cab', label: 'Cab', icon: require('@/assets/images/local_taxi.svg') },
+];
+
+export const VisitorTypeCard = () => {
+    return (
+        <View
+            className="w-[331px] h-[254px] bg-white rounded-[20px] p-5 flex-row flex-wrap gap-x-[15px] gap-y-[20px] shadow-sm shadow-black/25 android:elevation-5"
+        >
+            {visitorTypes.map((item) => (
+                <Pressable key={item.id} className="items-center w-[85px]">
+                    <View className="w-[56.52px] h-[56.52px] bg-[#7B54FA] rounded-[11.56px] items-center justify-center">
+                        <Image
+                            source={item.icon}
+                            className="w-6 h-6"
+                            tintColor="white"
+                            contentFit="contain"
+                        />
+                    </View>
+                    <Text className="mt-2 font-medium text-[14px] leading-[27px] tracking-[-0.41px] text-[#737373]">
+                        {item.label}
+                    </Text>
+                </Pressable>
+            ))}
+        </View>
+    );
+};

@@ -1,30 +1,93 @@
+import { Input, VisitorTypeCard } from '@/components/core';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
-import { Link } from 'expo-router';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, View } from 'react-native';
 
-export default function HomePage() {
+export default function ComponentShowcase() {
+    const [visitPurpose, setVisitPurpose] = useState('');
+    const [email, setEmail] = useState('');
+
     return (
-        <View style={styles.container}>
-            <Text className="text-2xl font-bold mb-6">Home Page</Text>
-            <Button className="mb-4">
-                <Text>Create Task</Text>
-            </Button>
-            <Link href="/about" asChild>
-                <Button variant="outline">
-                    <Text>Go to About</Text>
-                </Button>
-            </Link>
-        </View>
+        <ScrollView className="flex-1 bg-gray-50">
+            <View className="p-4 space-y-8 pb-10">
+                {/* --- Section 1: Inputs --- */}
+                <View className="space-y-4">
+                    <Text variant="h2">Input Components</Text>
+
+                    {/* Example 1: Basic with Label */}
+                    <View className="space-y-2">
+                        <Text className="text-gray-500 text-sm">Example 1: Basic Input</Text>
+                        <Input
+                            label="Purpose of visit"
+                            placeholder="Enter visit purpose"
+                            value={visitPurpose}
+                            onChangeText={setVisitPurpose}
+                        />
+                    </View>
+
+                    {/* Example 2: With Error & Custom Style */}
+                    <View className="space-y-2">
+                        <Text className="text-gray-500 text-sm">Example 2: Validation & Custom Style</Text>
+                        <Input
+                            label="Email Address"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChangeText={setEmail}
+                            error={email && !email.includes('@') ? 'Please enter a valid email' : undefined}
+                            keyboardType="email-address"
+                            autoCapitalize="none"
+                            inputClassName="w-full"
+                        />
+                    </View>
+                </View>
+
+                {/* --- Section 2: Buttons --- */}
+                <View className="space-y-4">
+                    <Text variant="h2">Button Components</Text>
+
+                    {/* Example 1: Variants */}
+                    <View className="space-y-2">
+                        <Text variant="h4">1. Variants</Text>
+                        <View className="flex-row flex-wrap gap-3">
+                            <Button variant="default">
+                                <Text>Default</Text>
+                            </Button>
+                            <Button variant="destructive">
+                                <Text>Destructive</Text>
+                            </Button>
+                            <Button variant="outline">
+                                <Text>Outline</Text>
+                            </Button>
+                        </View>
+                    </View>
+
+                    {/* Example 2: Sizes & States */}
+                    <View className="space-y-2">
+                        <Text variant="h4">2. Sizes & States</Text>
+                        <View className="flex-row flex-wrap gap-3 items-center">
+                            <Button size="sm">
+                                <Text>Small</Text>
+                            </Button>
+                            <Button size="icon" variant="outline">
+                                <Text>Ok</Text>
+                            </Button>
+                            <Button disabled>
+                                <Text>Disabled</Text>
+                            </Button>
+                        </View>
+                    </View>
+                </View>
+
+                {/* --- Section 3: Visitor Card --- */}
+                <View className="space-y-4">
+                    <Text variant="h2">Visitor Selection</Text>
+                    <View className="items-center">
+                        <VisitorTypeCard />
+                    </View>
+                </View>
+
+            </View>
+        </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f3f4f6',
-        padding: 20,
-    },
-});
