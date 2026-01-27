@@ -1,4 +1,4 @@
-import { BottomTabNavigation, Button as CoreButton, Input, VisitorTypeCard } from '@/components/core';
+import { BottomTabNavigation, Button as CoreButton, DateSelection, Input, VisitorTypeCard } from '@/components/core';
 import { Text } from '@/components/ui/text';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -47,6 +47,9 @@ export default function ComponentShowcase() {
                         <VisitorTypeCard />
                     </View>
                 </View>
+
+                {/* --- Section: Date Selection --- */}
+                <DateSelection />
 
                 {/* --- Section 4: Core Button --- */}
                 <View className="space-y-4">
