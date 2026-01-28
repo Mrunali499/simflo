@@ -28,22 +28,43 @@ simflo/
 ├── app/                        # Routes (Expo Router - file-based routing)
 │   ├── _layout.tsx             # Root layout with Stack navigation
 │   ├── index.tsx               # Home screen (/)
-│   └── about.tsx               # About screen (/about)
+│   ├── dashboard.tsx           # Dashboard screen (/dashboard)
+│   └── test.tsx                # Test screen (/test)
 │
 ├── components/
-│   └── ui/                     # Reusable UI components (Shadcn-style)
+│   ├── core/                   # Core application components
+│   │   ├── BottomTabNavigation.tsx
+│   │   ├── Button.tsx
+│   │   ├── ConversationHeader.tsx
+│   │   ├── DateSelection.tsx
+│   │   ├── VisitorTypeCard.tsx
+│   │   ├── dropdown.tsx
+│   │   ├── filter-chip.tsx
+│   │   ├── input.tsx
+│   │   ├── chatwindow/
+│   │   └── index.ts
+│   │
+│   └── ui/                     # Reusable UI primitives (Shadcn-style)
 │       ├── accordion.tsx
 │       ├── alert.tsx
 │       ├── alert-dialog.tsx
+│       ├── aspect-ratio.tsx
 │       ├── avatar.tsx
 │       ├── badge.tsx
 │       ├── button.tsx
 │       ├── card.tsx
 │       ├── checkbox.tsx
+│       ├── collapsible.tsx
+│       ├── context-menu.tsx
 │       ├── dialog.tsx
 │       ├── dropdown-menu.tsx
+│       ├── hover-card.tsx
+│       ├── icon.tsx
+│       ├── icon-symbol.tsx
+│       ├── icon-symbol.ios.tsx
 │       ├── input.tsx
 │       ├── label.tsx
+│       ├── menubar.tsx
 │       ├── popover.tsx
 │       ├── progress.tsx
 │       ├── radio-group.tsx
@@ -55,7 +76,9 @@ simflo/
 │       ├── text.tsx
 │       ├── textarea.tsx
 │       ├── toggle.tsx
-│       └── tooltip.tsx
+│       ├── toggle-group.tsx
+│       ├── tooltip.tsx
+│       └── native-only-animated-view.tsx
 │
 ├── constants/
 │   └── theme.ts                # Colors and Fonts configuration
@@ -71,12 +94,16 @@ simflo/
 ├── scripts/
 │   └── reset-project.js        # Project reset utility
 │
+├── android/                    # Native Android build files
+├── assets/                     # Images, fonts, and other static assets
+│
 ├── app.json                    # Expo configuration
 ├── babel.config.js             # Babel configuration
 ├── tailwind.config.js          # Tailwind CSS configuration
 ├── tsconfig.json               # TypeScript configuration
 ├── components.json             # Shadcn CLI configuration
 ├── global.css                  # Global Tailwind imports
+├── metro.config.js             # Metro bundler configuration
 └── package.json                # Dependencies
 ```
 
