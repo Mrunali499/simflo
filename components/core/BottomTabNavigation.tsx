@@ -1,10 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Colors } from '@/constants/theme';
 =======
 import VectorIcon from '@/assets/images/Vector.svg';
 import ChatIcon from '@/assets/images/chat_bubble.svg';
 import PersonIcon from '@/assets/images/person.svg';
 >>>>>>> 1263a7cb7538c6d289375b0f62f75c5b8c9ace82
+=======
+>>>>>>> parent of 6d7385b (introduce global primary color and fix icon path)
 import { Image } from 'expo-image';
 import React, { useState } from 'react';
 import { Pressable, View } from 'react-native';
@@ -13,7 +16,7 @@ const tabs = [
 <<<<<<< HEAD
     { id: 'chat', icon: require('@/assets/images/chat_bubble.svg') },
     { id: 'grid', icon: require('@/assets/images/box.svg') },
-    { id: 'layers', icon: require('@/assets/images/stacks.svg') },
+    { id: 'layers', icon: require('@/assets/images/stacks.png') },
     { id: 'profile', icon: require('@/assets/images/person.svg') },
 =======
     { id: 'chat', icon: ChatIcon, type: 'svg' },
@@ -41,7 +44,7 @@ export const BottomTabNavigation = () => {
                         <Image
                             source={tab.icon}
                             className={`${isActive ? 'w-7 h-7' : 'w-6 h-6'}`}
-                            tintColor={isActive ? Colors.light.primary : '#9CA3AF'}
+                            tintColor={isActive ? '#7B54FA' : '#9CA3AF'}
                             contentFit="contain"
                         />
 =======

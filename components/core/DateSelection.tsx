@@ -1,7 +1,10 @@
 import CalendarIcon from '@/assets/images/calendar_month.svg';
 import { Text } from '@/components/ui/text';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Colors } from '@/constants/theme';
+=======
+>>>>>>> parent of 6d7385b (introduce global primary color and fix icon path)
 import { Image } from 'expo-image';
 =======
 >>>>>>> 1263a7cb7538c6d289375b0f62f75c5b8c9ace82
@@ -20,8 +23,6 @@ const dates = [
 
 export const DateSelection = () => {
     const [selectedDateId, setSelectedDateId] = useState('3'); // Default to Wed 14
-    const primaryColor = Colors.light.primary;
-
 
     return (
         <View className="space-y-4">
@@ -37,7 +38,7 @@ export const DateSelection = () => {
                         <Pressable
                             key={item.id}
                             onPress={() => setSelectedDateId(item.id)}
-                            className={`w-[13%] min-w-[45px] h-[70px] rounded-2xl items-center justify-center space-y-1 ${isSelected ? 'bg-primary' : 'bg-gray-100'
+                            className={`w-[13%] min-w-[45px] h-[70px] rounded-2xl items-center justify-center space-y-1 ${isSelected ? 'bg-[#7B54FA]' : 'bg-gray-100'
                                 }`}
                         >
                             <Text className={`text-sm ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
@@ -57,14 +58,18 @@ export const DateSelection = () => {
                 <Image
                     source={require('@/assets/images/calendar_month.svg')}
                     className="w-6 h-6"
-                    tintColor={primaryColor}
+                    tintColor="#7B54FA"
                     contentFit="contain"
                 />
+<<<<<<< HEAD
                 <Text className="text-primary font-medium text-lg">Custom Date</Text>
 =======
                 <CalendarIcon width={24} height={24} fill="#7B54FA" />
                 <Text className="text-[#7B54FA] font-medium text-lg">Custom Date</Text>
 >>>>>>> 1263a7cb7538c6d289375b0f62f75c5b8c9ace82
+=======
+                <Text className="text-[#7B54FA] font-medium text-lg">Custom Date</Text>
+>>>>>>> parent of 6d7385b (introduce global primary color and fix icon path)
             </Pressable>
         </View>
     );
