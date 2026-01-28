@@ -34,7 +34,7 @@ export const DateSelection = () => {
                                 className={`flex-1 h-[45px] rounded-[8px] items-center justify-center ${isSelected ? 'bg-primary' : 'bg-date-card-bg'
                                     }`}
                             >
-                                <Text className={`font-medium text-[10px] ${isSelected ? 'text-white/80' : 'text-date-text'}`}>
+                                <Text className={`font-medium text-[10px] ${isSelected ? 'text-white' : 'text-date-text'}`}>
                                     {item.day}
                                 </Text>
                                 <Text className={`font-medium text-[10px] ${isSelected ? 'text-white' : 'text-date-text'}`}>

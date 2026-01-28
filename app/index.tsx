@@ -41,12 +41,7 @@ export default function Login() {
 
                 <View className="pt-4">
                     <Button title="Login" onPress={handleLogin} />
-                    <View className="mt-4">
-                        <Button
-                            title="Test Header"
-                            onPress={() => router.push('/test')}
-                        />
-                    </View>
+
                 </View>
             </View>
         </ScrollView>
