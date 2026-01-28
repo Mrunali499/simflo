@@ -2,7 +2,7 @@ import { BottomActionBar } from '@/components/core/chatwindow/BottomActionBar';
 import { EmptyStateCard } from '@/components/core/chatwindow/EmptyStateCard';
 import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
 import React, { useState } from 'react';
-import { Alert, ScrollView, View } from 'react-native';
+import { Alert, View } from 'react-native';
 
 export default function ChatWindowPage() {
     const [message, setMessage] = useState('');
@@ -24,11 +24,9 @@ export default function ChatWindowPage() {
             <ScreenHeader title={'Visitors'} />
 
             {/* Chat Content Area */}
-            <ScrollView className="flex-1">
-                <View className="mt-[333px]">
-                    <EmptyStateCard />
-                </View>
-            </ScrollView>
+            <View className="flex-1 items-center justify-center">
+                <EmptyStateCard />
+            </View>
 
             {/* Bottom Action Bar */}
             <BottomActionBar
@@ -39,6 +37,6 @@ export default function ChatWindowPage() {
                 onCameraPress={handleCameraPress}
                 onMicPress={handleMicPress}
             />
-        </View>
+        </View >
     );
 }
