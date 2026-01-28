@@ -24,11 +24,9 @@ export default function ChatWindowPage() {
             <ScreenHeader title={'Visitors'} />
 
             {/* Chat Content Area */}
-            <ScrollView className="flex-1">
-                <View className="mt-[333px]">
-                    <EmptyStateCard />
-                </View>
-            </ScrollView>
+            <View className="flex-1 items-center justify-center">
+                <EmptyStateCard />
+            </View>
 
             {/* Bottom Action Bar */}
             <BottomActionBar
