@@ -32,26 +32,26 @@ export const Dropdown = ({
     return (
         <View className={`w-full ${containerClassName}`}>
             {/* Label */}
-            <Text className="font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-[#464646] mb-[5px]">
+            <Text className="font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[5px]">
                 {label}
             </Text>
 
             {/* Trigger Button */}
             <Pressable
                 onPress={toggleDropdown}
-                className="w-full h-[46px] bg-white border border-[#C6C6C6] rounded-[9px] flex-row items-center justify-between px-[17px]"
+                className="w-full h-[46px] bg-white border border-border-default rounded-[9px] flex-row items-center justify-between px-[17px]"
             >
                 <Text className={`font-medium text-[13px] leading-[21px] tracking-[-0.32px] ${selectedOption ? 'text-black' : 'text-black'}`}>
                     {selectedOption ? selectedOption.label : placeholder}
                 </Text>
-                <ChevronDown size={20} color="#000" />
+                <ChevronDown size={20} color="var(--black)" />
             </Pressable>
 
             {/* Dropdown Modal */}
             {visible && (
                 <Modal transparent animationType="fade" visible={visible} onRequestClose={() => setVisible(false)}>
                     <Pressable className="flex-1 bg-black/20" onPress={() => setVisible(false)}>
-                        <View className="absolute left-[40px] right-[40px] top-[410px] bg-white rounded-[9px] border border-[#C6C6C6] p-2 shadow-lg">
+                        <View className="absolute left-[40px] right-[40px] top-[410px] bg-white rounded-[9px] border border-border-default p-2 shadow-lg">
                             <FlatList
                                 data={options}
                                 keyExtractor={(item) => item.value}
@@ -60,7 +60,7 @@ export const Dropdown = ({
                                         className="p-3 border-b border-gray-100 last:border-0"
                                         onPress={() => handleSelect(item.value)}
                                     >
-                                        <Text className="font-medium text-[13px] text-[#464646]">{item.label}</Text>
+                                        <Text className="font-medium text-[13px] text-text-dark">{item.label}</Text>
                                     </TouchableOpacity>
                                 )}
                             />

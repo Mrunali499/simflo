@@ -5,5 +5,13 @@
 @layer base {
   :root {
     --primary: #7B54FA;
+    --icon-inactive: #9CA3AF;
+    --text-dark: #464646;
+    --border-default: #C6C6C6;
+    --black: #000;
+    --text-placeholder: #BBBBBB;
+    --text-secondary: #737373;
+    --search-placeholder: #B7B7B7;
+    --search-bg: #F3F5F6;
   }
 }

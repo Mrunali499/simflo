@@ -25,15 +25,15 @@ export const Input = React.forwardRef<TextInput, InputProps>(
             <View className={`mb-4 ${containerClassName}`}>
                 {label && (
                     <Text
-                        className={`font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-[#464646] mb-[6px] ${labelClassName}`}
+                        className={`font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[6px] ${labelClassName}`}
                     >
                         {label}
                     </Text>
                 )}
                 <TextInput
                     ref={ref}
-                    className={`w-[324px] h-[46px] bg-white border border-[#C6C6C6] rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-[#464646] ${inputClassName}`}
-                    placeholderTextColor="#BBBBBB"
+                    className={`w-[324px] h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark ${inputClassName}`}
+                    placeholderTextColor="var(--text-placeholder)"
                     {...props}
                 />
                 {error && (

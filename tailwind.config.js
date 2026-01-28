@@ -10,6 +10,14 @@ module.exports = {
     extend: {
       colors: {
         primary: "var(--primary)",
+        "icon-inactive": "var(--icon-inactive)",
+        "text-dark": "var(--text-dark)",
+        "border-default": "var(--border-default)",
+        black: "var(--black)",
+        "text-placeholder": "var(--text-placeholder)",
+        "text-secondary": "var(--text-secondary)",
+        "search-placeholder": "var(--search-placeholder)",
+        "search-bg": "var(--search-bg)",
       },
     },
   },
