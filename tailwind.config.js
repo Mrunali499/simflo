@@ -16,6 +16,8 @@ module.exports = {
         black: "var(--black)",
         "text-placeholder": "var(--text-placeholder)",
         "text-secondary": "var(--text-secondary)",
+        "search-placeholder": "var(--search-placeholder)",
+        "search-bg": "var(--search-bg)",
       },
     },
   },
