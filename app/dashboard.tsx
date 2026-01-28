@@ -6,11 +6,12 @@ import { ScrollView, View } from 'react-native';
 export default function ComponentShowcase() {
     const [visitPurpose, setVisitPurpose] = useState('');
     const [email, setEmail] = useState('');
+    const [serviceType, setServiceType] = useState('');
 
     return (
         <View className="flex-1 bg-gray-50">
-            <ScrollView className="flex-1">
-                <View className="p-4 space-y-8 pb-10">
+            <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+                <View className="p-4 space-y-6 pb-32">
                     <View className="space-y-4">
                         <Text variant="h2" className="font-medium text-gray-800">Input Components</Text>
 
@@ -49,7 +50,8 @@ export default function ComponentShowcase() {
                                 { label: 'Electrical', value: 'electrical' },
                                 { label: 'Cleaning', value: 'cleaning' },
                             ]}
-                            onSelect={(val) => console.log(val)}
+                            value={serviceType}
+                            onSelect={setServiceType}
                         />
                     </View>
 

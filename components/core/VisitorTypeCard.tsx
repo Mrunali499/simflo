@@ -1,13 +1,17 @@
-import { Image } from 'expo-image';
+import BoxIcon from '@/assets/images/box.svg';
+import CalendarIcon from '@/assets/images/calendar_month.svg';
+import HandshakeIcon from '@/assets/images/handshake.svg';
+import TaxiIcon from '@/assets/images/local_taxi.svg';
+import PersonIcon from '@/assets/images/person.svg';
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
 const visitorTypes = [
-    { id: 'guest', label: 'Guest', icon: require('@/assets/images/person.svg') },
-    { id: 'helper', label: 'Helper', icon: require('@/assets/images/handshake.svg') },
-    { id: 'delivery', label: 'Delivery', icon: require('@/assets/images/box.svg') },
-    { id: 'events', label: 'Events', icon: require('@/assets/images/calendar_month.svg') },
-    { id: 'cab', label: 'Cab', icon: require('@/assets/images/local_taxi.svg') },
+    { id: 'guest', label: 'Guest', icon: PersonIcon },
+    { id: 'helper', label: 'Helper', icon: HandshakeIcon },
+    { id: 'delivery', label: 'Delivery', icon: BoxIcon },
+    { id: 'events', label: 'Events', icon: CalendarIcon },
+    { id: 'cab', label: 'Cab', icon: TaxiIcon },
 ];
 
 export const VisitorTypeCard = () => {
@@ -18,12 +22,7 @@ export const VisitorTypeCard = () => {
             {visitorTypes.map((item) => (
                 <Pressable key={item.id} className="items-center w-[85px]">
                     <View className="w-[56.52px] h-[56.52px] bg-[#7B54FA] rounded-[11.56px] items-center justify-center">
-                        <Image
-                            source={item.icon}
-                            className="w-6 h-6"
-                            tintColor="white"
-                            contentFit="contain"
-                        />
+                        <item.icon width={24} height={24} fill="white" />
                     </View>
                     <Text className="mt-2 font-medium text-[14px] leading-[27px] tracking-[-0.41px] text-[#737373]">
                         {item.label}
