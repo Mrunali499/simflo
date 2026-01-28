@@ -1,5 +1,7 @@
-import { BottomTabNavigation, Button as CoreButton, DateSelection, Dropdown, Input, VisitorTypeCard } from '@/components/core';
+import { BottomTabNavigation, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, VisitorTypeCard } from '@/components/core';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
+import { MoreVertical } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 
@@ -7,6 +9,7 @@ export default function ComponentShowcase() {
     const [visitPurpose, setVisitPurpose] = useState('');
     const [email, setEmail] = useState('');
     const [serviceType, setServiceType] = useState('');
+    const [selectedFilter, setSelectedFilter] = useState('All');
 
     return (
         <View className="flex-1 bg-gray-50">
@@ -60,6 +63,43 @@ export default function ComponentShowcase() {
                         <Text variant="h2" className="font-medium text-gray-800">Visitor Selection</Text>
                         <View className="items-center">
                             <VisitorTypeCard />
+                        </View>
+                    </View>
+
+                    {/* --- Section: Filter Chips --- */}
+                    <View className="space-y-4">
+                        <Text variant="h2" className="font-medium text-gray-800">Filter Chips</Text>
+
+                        {/* Mobile: Horizontal Scroll */}
+                        <View className="flex md:hidden flex-row items-center">
+                            <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-grow" contentContainerStyle={{ gap: 8, paddingRight: 16 }}>
+                                {['All', 'Favorite', 'Unread', 'Groups', 'My Society'].map((filter) => (
+                                    <FilterChip
+                                        key={filter}
+                                        label={filter}
+                                        selected={selectedFilter === filter}
+                                        onPress={() => setSelectedFilter(filter)}
+                                    />
+                                ))}
+                            </ScrollView>
+                            <View className="pl-2">
+                                <Icon as={MoreVertical} className="text-gray-500" size={20} />
+                            </View>
+                        </View>
+
+                        {/* Desktop/Tablet: Wrap */}
+                        <View className="hidden md:flex flex-row flex-wrap gap-2">
+                            {['All', 'Favorite', 'Unread', 'Groups', 'My Society'].map((filter) => (
+                                <FilterChip
+                                    key={filter}
+                                    label={filter}
+                                    selected={selectedFilter === filter}
+                                    onPress={() => setSelectedFilter(filter)}
+                                />
+                            ))}
+                            <View className="pl-2 justify-center">
+                                <Icon as={MoreVertical} className="text-gray-500" size={20} />
+                            </View>
                         </View>
                     </View>
 
