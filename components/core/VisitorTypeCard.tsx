@@ -17,7 +17,7 @@ export const VisitorTypeCard = () => {
         >
             {visitorTypes.map((item) => (
                 <Pressable key={item.id} className="items-center w-[85px]">
-                    <View className="w-[56.52px] h-[56.52px] bg-[#7B54FA] rounded-[11.56px] items-center justify-center">
+                    <View className="w-[56.52px] h-[56.52px] bg-primary rounded-[11.56px] items-center justify-center">
                         <Image
                             source={item.icon}
                             className="w-6 h-6"

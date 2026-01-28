@@ -1,4 +1,5 @@
 import { Text } from '@/components/ui/text';
+import { Colors } from '@/constants/theme';
 import { Image } from 'expo-image';
 import React, { useState } from 'react';
 import { Pressable, View } from 'react-native';
@@ -15,6 +16,8 @@ const dates = [
 
 export const DateSelection = () => {
     const [selectedDateId, setSelectedDateId] = useState('3'); // Default to Wed 14
+    const primaryColor = Colors.light.primary;
+
 
     return (
         <View className="space-y-4">
@@ -30,7 +33,7 @@ export const DateSelection = () => {
                         <Pressable
                             key={item.id}
                             onPress={() => setSelectedDateId(item.id)}
-                            className={`w-[13%] min-w-[45px] h-[70px] rounded-2xl items-center justify-center space-y-1 ${isSelected ? 'bg-[#7B54FA]' : 'bg-gray-100'
+                            className={`w-[13%] min-w-[45px] h-[70px] rounded-2xl items-center justify-center space-y-1 ${isSelected ? 'bg-primary' : 'bg-gray-100'
                                 }`}
                         >
                             <Text className={`text-sm ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
@@ -49,10 +52,10 @@ export const DateSelection = () => {
                 <Image
                     source={require('@/assets/images/calendar_month.svg')}
                     className="w-6 h-6"
-                    tintColor="#7B54FA"
+                    tintColor={primaryColor}
                     contentFit="contain"
                 />
-                <Text className="text-[#7B54FA] font-medium text-lg">Custom Date</Text>
+                <Text className="text-primary font-medium text-lg">Custom Date</Text>
             </Pressable>
         </View>
     );
