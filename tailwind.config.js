@@ -18,6 +18,8 @@ module.exports = {
         "text-secondary": "var(--text-secondary)",
         "search-placeholder": "var(--search-placeholder)",
         "search-bg": "var(--search-bg)",
+        "date-text": "var(--date-text)",
+        "date-card-bg": "var(--date-card-bg)",
       },
     },
   },
