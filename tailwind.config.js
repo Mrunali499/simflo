@@ -21,6 +21,8 @@ module.exports = {
         "chip-text": "var(--chip-text)",
         white: "var(--white)",
         "text-header": "var(--text-header)",
+        "date-text": "var(--date-text)",
+        "date-card-bg": "var(--date-card-bg)",
       },
     },
   },
