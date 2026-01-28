@@ -18,6 +18,8 @@ module.exports = {
         "text-secondary": "var(--text-secondary)",
         "search-placeholder": "var(--search-placeholder)",
         "search-bg": "var(--search-bg)",
+        "bg-icon-circle": "var(--bg-icon-circle)",
+        "text-description": "var(--text-description)",
       },
     },
   },
