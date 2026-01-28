@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 
 export const ChatListItem = () => {
     return (
-        <View className="flex-row items-center pt-[8px] pb-[12px] px-0 gap-3 w-full border-b border-chat-border">
+        <View className="flex-row items-center pt-[8px] pb-[12px] px-4 gap-3 w-full border-b border-chat-border">
             {/* Avatar */}
             <View className="w-12 h-12 rounded-full overflow-hidden">
                 <ProfilePhoto width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
