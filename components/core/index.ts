@@ -7,7 +7,4 @@ export * from './chatwindow/EmptyStateCard';
 export * from './dropdown';
 export * from './filter-chip';
 export * from './input';
-
-
-
-
+export * from './ScreenHeader';
