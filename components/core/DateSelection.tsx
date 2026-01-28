@@ -30,7 +30,7 @@ export const DateSelection = () => {
                         <Pressable
                             key={item.id}
                             onPress={() => setSelectedDateId(item.id)}
-                            className={`w-[13%] min-w-[45px] h-[70px] rounded-2xl items-center justify-center space-y-1 ${isSelected ? 'bg-[#7B54FA]' : 'bg-gray-100'
+                            className={`w-[13%] min-w-[45px] h-[70px] rounded-2xl items-center justify-center space-y-1 ${isSelected ? 'bg-primary' : 'bg-gray-100'
                                 }`}
                         >
                             <Text className={`text-sm ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
@@ -46,8 +46,8 @@ export const DateSelection = () => {
 
             {/* Custom Date Button */}
             <Pressable className="w-full border border-dashed border-gray-300 rounded-2xl h-14 flex-row items-center justify-center space-x-2 active:bg-gray-50">
-                <CalendarIcon width={24} height={24} fill="#7B54FA" />
-                <Text className="text-[#7B54FA] font-medium text-lg">Custom Date</Text>
+                <CalendarIcon width={24} height={24} fill="var(--primary)" />
+                <Text className="text-primary font-medium text-lg">Custom Date</Text>
             </Pressable>
         </View>
     );

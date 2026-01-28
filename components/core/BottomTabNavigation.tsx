@@ -29,7 +29,7 @@ export const BottomTabNavigation = () => {
                         <tab.icon
                             width={20}
                             height={20}
-                            fill={isActive ? '#7B54FA' : '#9CA3AF'}
+                            fill={isActive ? 'var(--primary)' : 'var(--icon-inactive)'}
                         />
                     </Pressable>
                 );
