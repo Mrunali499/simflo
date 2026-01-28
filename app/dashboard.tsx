@@ -1,4 +1,4 @@
-import { BottomTabNavigation, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, VisitorTypeCard } from '@/components/core';
+import { BottomTabNavigation, ChatListItem, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, VisitorTypeCard } from '@/components/core';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { MoreVertical } from 'lucide-react-native';
@@ -101,6 +101,12 @@ export default function ComponentShowcase() {
                                 <Icon as={MoreVertical} className="text-gray-500" size={20} />
                             </View>
                         </View>
+                    </View>
+
+                    {/* --- Section: Chat List Item --- */}
+                    <View className="space-y-4">
+                        <Text variant="h2" className="font-medium text-gray-800">Chat List Item</Text>
+                        <ChatListItem />
                     </View>
 
                     {/* --- Section: Date Selection --- */}

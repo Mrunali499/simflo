@@ -31,6 +31,7 @@ module.exports = {
         "date-card-bg": "var(--date-card-bg)",
         "border-subtle": "var(--border-subtle)",
         "text-figma-gray": "var(--text-figma-gray)",
+        "chat-border": "var(--border-chat-item)",
       },
     },
   },
