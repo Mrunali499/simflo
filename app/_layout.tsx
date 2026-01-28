@@ -4,9 +4,8 @@ import '../global.css';
 export default function RootLayout() {
     return (
         <Stack>
-            <Stack.Screen name="index" options={{ title: 'Login', headerShown: false }} />
-            <Stack.Screen name="dashboard" options={{ title: 'Component Showcase' }} />
-            <Stack.Screen name="test" options={{ headerShown: false }} />
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="chatwindow" options={{ headerShown: false }} />
         </Stack>
     );
 }
