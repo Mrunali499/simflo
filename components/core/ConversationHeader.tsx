@@ -11,7 +11,7 @@ export const ConversationHeader = () => {
                 <TextInput
                     placeholder="Search..."
                     placeholderTextColor="#9CA3AF"
-                    className="text-base text-[#1A1A1A]"
+                    className="text-base text-[#]"
                 />
             </View>
         </View>
