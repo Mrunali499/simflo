@@ -27,14 +27,14 @@ export function FilterChip({
                 variant={selected ? 'default' : 'secondary'}
                 className={cn(
                     'rounded-full px-3 py-1 md:px-5 md:py-2',
-                    !selected && 'bg-gray-100',
+                    !selected && 'bg-search-bg',
                     className
                 )}
             >
                 <Text
                     className={cn(
                         'font-medium text-xs md:text-sm',
-                        selected ? 'text-white' : 'text-gray-600',
+                        selected ? 'text-white' : 'text-chip-text',
                         textClassName
                     )}
                 >
