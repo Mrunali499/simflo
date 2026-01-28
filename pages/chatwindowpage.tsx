@@ -28,7 +28,6 @@ export default function ChatWindowPage() {
                 <EmptyStateCard />
             </View>
 
-
             {/* Bottom Action Bar */}
             <BottomActionBar
                 value={message}
