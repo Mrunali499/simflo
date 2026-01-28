@@ -1,13 +1,5 @@
 import CalendarIcon from '@/assets/images/calendar_month.svg';
 import { Text } from '@/components/ui/text';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Colors } from '@/constants/theme';
-=======
->>>>>>> parent of 6d7385b (introduce global primary color and fix icon path)
-import { Image } from 'expo-image';
-=======
->>>>>>> 1263a7cb7538c6d289375b0f62f75c5b8c9ace82
 import React, { useState } from 'react';
 import { Pressable, View } from 'react-native';
 
@@ -54,22 +46,8 @@ export const DateSelection = () => {
 
             {/* Custom Date Button */}
             <Pressable className="w-full border border-dashed border-gray-300 rounded-2xl h-14 flex-row items-center justify-center space-x-2 active:bg-gray-50">
-<<<<<<< HEAD
-                <Image
-                    source={require('@/assets/images/calendar_month.svg')}
-                    className="w-6 h-6"
-                    tintColor="#7B54FA"
-                    contentFit="contain"
-                />
-<<<<<<< HEAD
-                <Text className="text-primary font-medium text-lg">Custom Date</Text>
-=======
                 <CalendarIcon width={24} height={24} fill="#7B54FA" />
                 <Text className="text-[#7B54FA] font-medium text-lg">Custom Date</Text>
->>>>>>> 1263a7cb7538c6d289375b0f62f75c5b8c9ace82
-=======
-                <Text className="text-[#7B54FA] font-medium text-lg">Custom Date</Text>
->>>>>>> parent of 6d7385b (introduce global primary color and fix icon path)
             </Pressable>
         </View>
     );

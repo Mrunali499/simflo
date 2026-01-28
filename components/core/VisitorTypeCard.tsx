@@ -2,7 +2,7 @@ import BoxIcon from '@/assets/images/box.svg';
 import CalendarIcon from '@/assets/images/calendar_month.svg';
 import HandshakeIcon from '@/assets/images/handshake.svg';
 import TaxiIcon from '@/assets/images/local_taxi.svg';
-import PersonIcon from '@/assets/images/person.svg';
+import PersonIcon from '@/assets/images/person_icon.svg';
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
@@ -21,22 +21,8 @@ export const VisitorTypeCard = () => {
         >
             {visitorTypes.map((item) => (
                 <Pressable key={item.id} className="items-center w-[85px]">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <View className="w-[56.52px] h-[56.52px] bg-primary rounded-[11.56px] items-center justify-center">
-=======
-                    <View className="w-[56.52px] h-[56.52px] bg-[#7B54FA] rounded-[11.56px] items-center justify-center">
->>>>>>> parent of 6d7385b (introduce global primary color and fix icon path)
-                        <Image
-                            source={item.icon}
-                            className="w-6 h-6"
-                            tintColor="white"
-                            contentFit="contain"
-                        />
-=======
                     <View className="w-[56.52px] h-[56.52px] bg-[#7B54FA] rounded-[11.56px] items-center justify-center">
                         <item.icon width={24} height={24} fill="white" />
->>>>>>> 1263a7cb7538c6d289375b0f62f75c5b8c9ace82
                     </View>
                     <Text className="mt-2 font-medium text-[14px] leading-[27px] tracking-[-0.41px] text-[#737373]">
                         {item.label}
