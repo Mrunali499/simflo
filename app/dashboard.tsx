@@ -1,4 +1,4 @@
-import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, Textmsg, VisitType } from '@/components/core';
+import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, SocialPlatformSelector, Textmsg, VisitType } from '@/components/core';
 import { GuestForm } from '@/components/form/GuestForm';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
@@ -41,6 +41,10 @@ export default function ComponentShowcase() {
                                 autoCapitalize="none"
                                 inputClassName="w-full"
                             />
+                        </View>
+
+                        <View className="space-y-2">
+                            <SocialPlatformSelector />
                         </View>
                     </View>
 

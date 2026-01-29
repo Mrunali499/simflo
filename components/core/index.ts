@@ -11,6 +11,7 @@ export * from './input';
 export * from './mysociety/contact';
 export * from './mysociety/Textmsg';
 export * from './mysociety/VisitType';
+export * from './SocialPlatformSelector';
 export * from './TimeSlotPicker';
 export * from './VisitorTypeCard';
 
