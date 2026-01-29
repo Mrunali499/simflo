@@ -3,7 +3,8 @@ import ChatIcon from '@/assets/images/chat_bubble.svg';
 import PersonIcon from '@/assets/images/person.svg';
 import StacksIcon from '@/assets/images/stacks.svg';
 import React, { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const tabs = [
     { id: 'chat', icon: ChatIcon },
@@ -16,7 +17,10 @@ export const BottomTabNavigation = () => {
     const [activeTab, setActiveTab] = useState('chat');
 
     return (
-        <View className="flex-row items-center justify-around bg-white py-4 border-t border-gray-100 w-full">
+        <SafeAreaView
+            edges={['bottom']}
+            className="flex-row items-center justify-around bg-white border-t border-gray-100 w-full pt-4"
+        >
             {tabs.map((tab) => {
                 const isActive = activeTab === tab.id;
                 return (
@@ -29,11 +33,11 @@ export const BottomTabNavigation = () => {
                         <tab.icon
                             width={20}
                             height={20}
-                            fill={isActive ? 'var(--primary)' : 'var(--icon-inactive)'}
+                            fill={isActive ? '#7B54FA' : '#9CA3AF'}
                         />
                     </Pressable>
                 );
             })}
-        </View>
+        </SafeAreaView>
     );
 };

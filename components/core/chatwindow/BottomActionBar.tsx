@@ -4,6 +4,7 @@ import PlusIcon from '@/assets/images/plus-icon.svg';
 import PurplePlusIcon from '@/assets/images/purple-plus.svg';
 import React, { useState } from 'react';
 import { TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface BottomActionBarProps {
     placeholder?: string;
@@ -32,7 +33,10 @@ export const BottomActionBar = ({
     };
 
     return (
-        <View className="flex-row items-center bg-action-bar-bg px-4 py-3 border-t border-border-default">
+        <SafeAreaView
+            edges={['bottom']}
+            className="flex-row items-center bg-action-bar-bg px-4 border-t border-border-default pt-3"
+        >
             {/* Plus Button */}
             <TouchableOpacity
                 onPress={handlePlusPress}
@@ -74,6 +78,6 @@ export const BottomActionBar = ({
             >
                 <MicIcon width={15} height={22} />
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     );
 };
