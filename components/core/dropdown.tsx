@@ -1,10 +1,14 @@
-import { Portal } from '@rn-primitives/portal';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { ChevronDown } from 'lucide-react-native';
-import React, { useRef, useState } from 'react';
-import { LayoutRectangle, Pressable, ScrollView, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React from 'react';
+import { Pressable, Text, View } from 'react-native';
 
-export interface DropdownProps {
+interface DropdownProps {
     label: string;
     placeholder?: string;
     options: Array<{ label: string; value: string }>;
@@ -21,98 +25,40 @@ export const Dropdown = ({
     onSelect,
     containerClassName = '',
 }: DropdownProps) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const triggerRef = useRef<View>(null);
-    const [layout, setLayout] = useState<LayoutRectangle | null>(null);
-    const insets = useSafeAreaInsets();
-
+    const [width, setWidth] = React.useState(0);
     const selectedOption = options.find((opt) => opt.value === value);
 
-    const toggleDropdown = () => {
-        if (!isOpen && triggerRef.current) {
-            triggerRef.current.measureInWindow((x, y, width, height) => {
-                setLayout({ x, y, width, height });
-                setIsOpen(true);
-            });
-        } else {
-            setIsOpen(false);
-        }
-    };
-
-    const handleSelect = (val: string) => {
-        onSelect(val);
-        setIsOpen(false);
-    };
-
     return (
-        <View className={`w-full z-50 ${containerClassName}`}>
+        <View className={`w-full ${containerClassName}`}>
             {/* Label */}
-            <Text className="font-inter font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[5px]">
+            <Text className="font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[5px]">
                 {label}
             </Text>
 
-            {/* Trigger Button */}
-            <View
-                ref={triggerRef}
-                className="w-full"
-                collapsable={false} // Important for measure
-            >
-                <Pressable
-                    onPress={toggleDropdown}
-                    className="w-full h-[46px] bg-white border border-border-default rounded-[9px] flex-row items-center justify-between px-[17px]"
-                >
-                    <Text
-                        className={`font-inter font-medium text-[13px] leading-[21px] tracking-[-0.32px] ${selectedOption ? 'text-black' : 'text-text-placeholder'
-                            }`}
-                    >
-                        {selectedOption ? selectedOption.label : placeholder}
-                    </Text>
-                    <ChevronDown size={20} color="var(--black)" />
-                </Pressable>
-            </View>
-
-            {/* Portal Dropdown List */}
-            {isOpen && layout && (
-                <Portal name={`dropdown-${label}`}>
-                    {/* Transparent Overlay to close on outside click */}
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
                     <Pressable
-                        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-                        onPress={() => setIsOpen(false)}
-                    />
-
-                    {/* Absolute Positioned List */}
-                    <View
-                        style={{
-                            position: 'absolute',
-                            top: layout.y + layout.height + 6, // +6px gap
-                            left: layout.x,
-                            width: layout.width,
-                            maxHeight: 200,
-                            zIndex: 9999, // Ensure top of everything
-                        }}
-                        className="bg-white border border-border-default rounded-[9px] shadow-lg"
+                        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+                        className="w-full h-[46px] bg-white border border-border-default rounded-[9px] flex-row items-center justify-between px-[17px]"
                     >
-                        <ScrollView nestedScrollEnabled className="w-full">
-                            {options.map((item) => (
-                                <Pressable
-                                    key={item.value}
-                                    onPress={() => handleSelect(item.value)}
-                                    // Use style for press feedback or keep standard
-                                    className={`p-3 w-full rounded-[6px] my-[2px] ${item.value === value ? 'bg-visit-type-active-bg' : ''
-                                        }`}
-                                >
-                                    <Text
-                                        className={`font-inter font-medium text-[13px] ${item.value === value ? 'text-primary' : 'text-text-dark'
-                                            }`}
-                                    >
-                                        {item.label}
-                                    </Text>
-                                </Pressable>
-                            ))}
-                        </ScrollView>
-                    </View>
-                </Portal>
-            )}
+                        <Text className={`font-medium text-[13px] leading-[21px] tracking-[-0.32px] ${selectedOption ? 'text-black' : 'text-black'}`}>
+                            {selectedOption ? selectedOption.label : placeholder}
+                        </Text>
+                        <ChevronDown size={20} color="var(--black)" />
+                    </Pressable>
+                </DropdownMenuTrigger>
+
+                <DropdownMenuContent
+                    style={{ width }}
+                    className="bg-white border border-border-default rounded-[9px] mt-1"
+                >
+                    {options.map((item) => (
+                        <DropdownMenuItem key={item.value} onPress={() => onSelect(item.value)}>
+                            <Text className="font-semibold text-[13px] leading-[21px] tracking-[-0.32px]  text-text-dark">{item.label}</Text>
+                        </DropdownMenuItem>
+                    ))}
+                </DropdownMenuContent>
+            </DropdownMenu>
         </View>
     );
 };
