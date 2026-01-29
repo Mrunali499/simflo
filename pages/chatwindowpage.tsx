@@ -1,6 +1,7 @@
 import { BottomActionBar } from '@/components/core/chatwindow/BottomActionBar';
 import { EmptyStateCard } from '@/components/core/chatwindow/EmptyStateCard';
 import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { Alert, View } from 'react-native';
 
@@ -21,7 +22,7 @@ export default function ChatWindowPage() {
 
     return (
         <View className="flex-1 bg-white">
-            <ScreenHeader title={'Visitors'} />
+            <ScreenHeader title={'Visitors'} onBackPress={() => router.back()} />
 
             {/* Chat Content Area */}
             <View className="flex-1 items-center justify-center">

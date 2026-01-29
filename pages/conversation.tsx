@@ -1,5 +1,6 @@
 import { BottomTabNavigation, ChatListItem, ConversationHeader, FilterChip } from '@/components/core';
 import { Icon } from '@/components/ui/icon';
+import { router } from 'expo-router';
 import { MoreVertical } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -35,10 +36,10 @@ export default function ConversationPage() {
 
             <ScrollView className="flex-1 mt-2">
                 {/* Demonstrating multiple list items */}
-                <ChatListItem />
-                <ChatListItem />
-                <ChatListItem />
-                <ChatListItem />
+                <ChatListItem onPress={() => router.push('/chatwindow')} />
+                <ChatListItem onPress={() => router.push('/chatwindow')} />
+                <ChatListItem onPress={() => router.push('/chatwindow')} />
+                <ChatListItem onPress={() => router.push('/chatwindow')} />
             </ScrollView>
 
             <BottomTabNavigation />

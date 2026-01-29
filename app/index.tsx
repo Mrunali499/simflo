@@ -8,8 +8,8 @@ export default function Login() {
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        // Navigate to the chat window page
-        router.replace('/chatwindow');
+        // Navigate to the conversation list page
+        router.replace('/conversation');
     };
 
     return (

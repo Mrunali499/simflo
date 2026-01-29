@@ -1,10 +1,14 @@
 import ProfilePhoto from '@/assets/images/profile-photo.svg';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
-export const ChatListItem = () => {
+interface ChatListItemProps {
+    onPress?: () => void;
+}
+
+export const ChatListItem = ({ onPress }: ChatListItemProps) => {
     return (
-        <View className="flex-row items-center pt-[8px] pb-[12px] px-4 gap-3 w-full border-b border-chat-border">
+        <TouchableOpacity onPress={onPress} className="flex-row items-center pt-[8px] pb-[12px] px-4 gap-3 w-full border-b border-chat-border">
             {/* Avatar */}
             <View className="w-12 h-12 rounded-full overflow-hidden">
                 <ProfilePhoto width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
@@ -25,6 +29,6 @@ export const ChatListItem = () => {
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
