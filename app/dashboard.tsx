@@ -1,8 +1,5 @@
 import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, Textmsg, VisitType } from '@/components/core';
-<<<<<<< HEAD
 import { GuestForm } from '@/components/form/GuestForm';
-=======
->>>>>>> 238292a35c73c4c7d51d5170f40c539f0c548c74
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { MoreVertical } from 'lucide-react-native';
@@ -61,11 +58,6 @@ export default function ComponentShowcase() {
                             onSelect={setServiceType}
                         />
                     </View>
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 238292a35c73c4c7d51d5170f40c539f0c548c74
 
 
                     {/* ---  Visit Type --- */}
@@ -151,7 +143,7 @@ export default function ComponentShowcase() {
                             <CoreButton title="Continue" onPress={() => console.log('Pressed')} />
                         </View>
                     </View>
-                </View>
+                </View >
             </ScrollView >
             <BottomTabNavigation />
         </View >

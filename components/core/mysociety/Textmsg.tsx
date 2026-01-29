@@ -45,7 +45,7 @@ export const Textmsg = ({ message, timestamp }: TextmsgProps) => {
                 >
                     <Text className="font-medium text-[14px] leading-[21px] tracking-[-0.32px]  text-text-dark">{message}</Text>
                 </View>
-                <Text className="font-medium text-[11px] leading-[21px] tracking-[-0.32px] text-xs text-xs text-text-secondary ml-1">{timeString}</Text>
+                <Text className="font-medium text-[11px] leading-[21px] tracking-[-0.32px] text-text-secondary ml-1">{timeString}</Text>
             </View>
         </View>
     );
