@@ -1,4 +1,4 @@
-import { BottomTabNavigation, ChatListItem, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, Textmsg, VisitorTypeCard, VisitType } from '@/components/core';
+import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, Textmsg, VisitorTypeCard, VisitType } from '@/components/core';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { MoreVertical } from 'lucide-react-native';
@@ -128,6 +128,12 @@ export default function ComponentShowcase() {
                             message="Can you approve the entry?"
                             timestamp={new Date(Date.now() - 120000)} // 2 mins ago
                         />
+                    </View>
+
+                    {/* --- Section: Contact --- */}
+                    <View className="space-y-4">
+                        <Text variant="h2" className="font-medium text-gray-800">Contact Selection</Text>
+                        <Contact />
                     </View>
 
                     {/* --- Section 4: Core Button --- */}
