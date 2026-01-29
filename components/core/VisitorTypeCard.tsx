@@ -24,7 +24,7 @@ export const VisitorTypeCard = () => {
                     <View className="w-[56.52px] h-[56.52px] bg-primary rounded-[11.56px] items-center justify-center">
                         <item.icon width={24} height={24} fill="white" />
                     </View>
-                    <Text className="mt-2 font-medium text-[14px] leading-[27px] tracking-[-0.41px] text-text-secondary">
+                    <Text className="font-inter mt-2 font-medium text-[14px] leading-[27px] tracking-[-0.41px] text-text-secondary">
                         {item.label}
                     </Text>
                 </Pressable>

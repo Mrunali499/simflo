@@ -32,7 +32,7 @@ export const Dropdown = ({
     return (
         <View className={`w-full ${containerClassName}`}>
             {/* Label */}
-            <Text className="font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[5px]">
+            <Text className="font-inter font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[5px]">
                 {label}
             </Text>
 
@@ -41,7 +41,7 @@ export const Dropdown = ({
                 onPress={toggleDropdown}
                 className="w-full h-[46px] bg-white border border-border-default rounded-[9px] flex-row items-center justify-between px-[17px]"
             >
-                <Text className={`font-medium text-[13px] leading-[21px] tracking-[-0.32px] ${selectedOption ? 'text-black' : 'text-black'}`}>
+                <Text className={`font-inter font-medium text-[13px] leading-[21px] tracking-[-0.32px] ${selectedOption ? 'text-black' : 'text-black'}`}>
                     {selectedOption ? selectedOption.label : placeholder}
                 </Text>
                 <ChevronDown size={20} color="var(--black)" />
@@ -60,7 +60,7 @@ export const Dropdown = ({
                                         className="p-3 border-b border-gray-100 last:border-0"
                                         onPress={() => handleSelect(item.value)}
                                     >
-                                        <Text className="font-medium text-[13px] text-text-dark">{item.label}</Text>
+                                        <Text className="font-inter font-medium text-[13px] text-text-dark">{item.label}</Text>
                                     </TouchableOpacity>
                                 )}
                             />

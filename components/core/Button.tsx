@@ -15,7 +15,7 @@ export const Button = React.forwardRef<View, ButtonProps>(
                 className={`w-full h-[53px] bg-primary border border-border-default rounded-[9px] items-center justify-center active:opacity-90 ${containerClassName}`}
                 {...props}
             >
-                <Text className={`text-white font-medium text-[14px] leading-[21px] tracking-[-0.32px] ${textClassName}`}>
+                <Text className={`font-inter text-white font-medium text-[14px] leading-[21px] tracking-[-0.32px] ${textClassName}`}>
                     {title}
                 </Text>
             </Pressable>

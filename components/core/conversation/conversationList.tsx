@@ -12,16 +12,16 @@ export const ChatListItem = () => {
 
             <View className="flex-1">
                 <View className="flex-row justify-between items-baseline mb-0.5">
-                    <Text className="text-text-header text-lg font-semibold">Mathew Keith</Text>
-                    <Text className="text-text-secondary text-xs">10 min</Text>
+                    <Text className="font-inter text-text-header text-lg font-semibold">Mathew Keith</Text>
+                    <Text className="font-inter text-text-secondary text-xs">10 min</Text>
                 </View>
 
                 <View className="flex-row justify-between items-center">
-                    <Text className="text-text-secondary text-sm flex-1 mr-2" numberOfLines={1}>
+                    <Text className="font-inter text-text-secondary text-sm flex-1 mr-2" numberOfLines={1}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </Text>
                     <View className="bg-primary w-5 h-5 rounded-full items-center justify-center">
-                        <Text className="text-white text-xs font-bold">2</Text>
+                        <Text className="font-inter text-white text-xs font-bold">2</Text>
                     </View>
                 </View>
             </View>

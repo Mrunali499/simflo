@@ -33,7 +33,7 @@ export function FilterChip({
             >
                 <Text
                     className={cn(
-                        'font-medium text-xs md:text-sm',
+                        'font-inter font-medium text-xs md:text-sm',
                         selected ? 'text-white' : 'text-chip-text',
                         textClassName
                     )}

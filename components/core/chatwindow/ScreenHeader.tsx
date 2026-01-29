@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import ArrowBackIcon from '@/assets/images/arrow_back_icon.svg';
 import ThreeDotIcon from '@/assets/images/3dot_icon.svg';
+import ArrowBackIcon from '@/assets/images/arrow_back_icon.svg';
+import React from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export interface ScreenHeaderProps {
     title: string;
@@ -25,7 +25,7 @@ export function ScreenHeader({ title, onBackPress }: ScreenHeaderProps) {
 
                 {/* Center Section: Title */}
                 <Text
-                    className="flex-1 font-semibold text-text-figma-gray text-[18px] leading-[21px] tracking-[-0.32px]"
+                    className="font-inter flex-1 font-semibold text-text-figma-gray text-[18px] leading-[21px] tracking-[-0.32px]"
                 >
                     {title}
                 </Text>
