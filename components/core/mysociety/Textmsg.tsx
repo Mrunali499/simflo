@@ -27,8 +27,8 @@ export const Textmsg = ({ message, timestamp }: TextmsgProps) => {
             }
         };
 
-        updateTime(); // Initial call
-        const interval = setInterval(updateTime, 60000); // Update every minute
+        updateTime();
+        const interval = setInterval(updateTime, 60000);
 
         return () => clearInterval(interval);
     }, [timestamp]);
@@ -38,7 +38,7 @@ export const Textmsg = ({ message, timestamp }: TextmsgProps) => {
             {/* Profile Icon */}
             <View className="w-[32px] h-[32px] rounded-full bg-primary items-center justify-center" />
 
-            {/* Message Bubble */}
+
             <View className="flex-col gap-1 items-start shrink">
                 <View
                     className="max-w-[302px] min-h-[63px] bg-[#F2F2F2] rounded-tr-[13px] rounded-br-[13px] rounded-bl-[13px] rounded-tl-none p-4 justify-center self-start"

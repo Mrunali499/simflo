@@ -17,7 +17,7 @@ export function TimeSlotPicker({
 }: TimeSlotPickerProps) {
     return (
         <View className="mb-4 w-full">
-            <Text className="text-[13px] leading-[21px] tracking-[-0.32px] font-semibold text-text-dark mb-[4px]">
+            <Text className="text-[13px] leading-[21px] tracking-[-0.32px] font-semibold text-text-dark mb-[4px] font-inter">
                 Time Slot
             </Text>
             <View className="flex-row gap-3 w-full">

@@ -9,7 +9,7 @@ export const VisitType = () => {
     return (
         <View className="flex-row gap-8">
             <View>
-                <Text className="text-base font-semibold text-text-header mb-4">Visit Type</Text>
+                <Text className="text-[13px] font-semibold leading-[21px] tracking-[-0.32px] text-text-dark mb-4 font-inter">Visit Type</Text>
                 <View className="flex-row gap-8">
                     {/* One-Time Button */}
                     <Pressable

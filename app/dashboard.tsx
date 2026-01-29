@@ -1,4 +1,5 @@
-import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, Textmsg, VisitorTypeCard, VisitType } from '@/components/core';
+import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, Textmsg, VisitType } from '@/components/core';
+import { GuestForm } from '@/components/form/GuestForm';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { MoreVertical } from 'lucide-react-native';
@@ -43,7 +44,7 @@ export default function ComponentShowcase() {
                         </View>
                     </View>
 
-                    {/* --- Section: Dropdown --- */}
+                    {/* ---  Dropdown --- */}
                     <View className="space-y-4">
                         <Text variant="h2">Dropdown Component</Text>
                         <Dropdown
@@ -58,20 +59,14 @@ export default function ComponentShowcase() {
                         />
                     </View>
 
-                    {/* --- Section 3: Visitor Card --- */}
-                    <View className="space-y-4">
-                        <Text variant="h2" className="font-medium text-gray-800">Visitor Selection</Text>
-                        <View className="items-center">
-                            <VisitorTypeCard />
-                        </View>
-                    </View>
 
-                    {/* --- Section: Visit Type --- */}
+
+                    {/* ---  Visit Type --- */}
                     <View className="space-y-4">
                         <VisitType />
                     </View>
 
-                    {/* --- Section: Filter Chips --- */}
+                    {/* --- Filter Chips --- */}
                     <View className="space-y-4">
                         <Text variant="h2" className="font-medium text-gray-800">Filter Chips</Text>
 
@@ -108,16 +103,16 @@ export default function ComponentShowcase() {
                         </View>
                     </View>
 
-                    {/* --- Section: Chat List Item --- */}
+                    {/* --- Chat List Item --- */}
                     <View className="space-y-4">
                         <Text variant="h2" className="font-medium text-gray-800">Chat List Item</Text>
                         <ChatListItem />
                     </View>
 
-                    {/* --- Section: Date Selection --- */}
+                    {/* --- Date Selection --- */}
                     <DateSelection />
 
-                    {/* --- Section: Text Message --- */}
+                    {/* --- Text Message --- */}
                     <View className="space-y-4">
                         <Text variant="h2" className="font-medium text-gray-800">Text Message</Text>
                         <Textmsg
@@ -130,13 +125,19 @@ export default function ComponentShowcase() {
                         />
                     </View>
 
-                    {/* --- Section: Contact --- */}
+                    {/* ---  Contact --- */}
                     <View className="space-y-4">
                         <Text variant="h2" className="font-medium text-gray-800">Contact Selection</Text>
                         <Contact />
                     </View>
 
-                    {/* --- Section 4: Core Button --- */}
+                    {/* --- Guest Entry Form --- */}
+                    <View className="space-y-4 items-center">
+                        <Text variant="h2" className="font-medium text-gray-800 self-start">Guest Entry Form</Text>
+                        <GuestForm />
+                    </View>
+
+                    {/* ---  Core Button --- */}
                     <View className="space-y-4">
                         <Text variant="h2" className="font-medium text-gray-800">Core Button</Text>
                         <View>
@@ -144,8 +145,8 @@ export default function ComponentShowcase() {
                         </View>
                     </View>
                 </View>
-            </ScrollView>
+            </ScrollView >
             <BottomTabNavigation />
-        </View>
+        </View >
     );
 }
