@@ -1,4 +1,4 @@
-import { BottomTabNavigation, ChatListItem, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, VisitorTypeCard } from '@/components/core';
+import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, Textmsg, VisitType } from '@/components/core';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { MoreVertical } from 'lucide-react-native';
@@ -58,12 +58,11 @@ export default function ComponentShowcase() {
                         />
                     </View>
 
-                    {/* --- Section 3: Visitor Card --- */}
+
+
+                    {/* --- Section: Visit Type --- */}
                     <View className="space-y-4">
-                        <Text variant="h2" className="font-medium text-gray-800">Visitor Selection</Text>
-                        <View className="items-center">
-                            <VisitorTypeCard />
-                        </View>
+                        <VisitType />
                     </View>
 
                     {/* --- Section: Filter Chips --- */}
@@ -111,6 +110,25 @@ export default function ComponentShowcase() {
 
                     {/* --- Section: Date Selection --- */}
                     <DateSelection />
+
+                    {/* --- Section: Text Message --- */}
+                    <View className="space-y-4">
+                        <Text variant="h2" className="font-medium text-gray-800">Text Message</Text>
+                        <Textmsg
+                            message="Hello! I am at the gate."
+                            timestamp={new Date()}
+                        />
+                        <Textmsg
+                            message="Can you approve the entry?"
+                            timestamp={new Date(Date.now() - 120000)} // 2 mins ago
+                        />
+                    </View>
+
+                    {/* --- Section: Contact --- */}
+                    <View className="space-y-4">
+                        <Text variant="h2" className="font-medium text-gray-800">Contact Selection</Text>
+                        <Contact />
+                    </View>
 
                     {/* --- Section 4: Core Button --- */}
                     <View className="space-y-4">

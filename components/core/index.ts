@@ -8,5 +8,9 @@ export * from './conversation/filter-chip';
 export * from './DateSelection';
 export * from './dropdown';
 export * from './input';
+export * from './mysociety/contact';
+export * from './mysociety/Textmsg';
+export * from './mysociety/VisitType';
+export * from './TimeSlotPicker';
 export * from './VisitorTypeCard';
 

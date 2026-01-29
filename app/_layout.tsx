@@ -10,6 +10,7 @@ import {
     Inter_900Black,
     useFonts,
 } from '@expo-google-fonts/inter';
+import { PortalHost } from '@rn-primitives/portal';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
@@ -42,10 +43,13 @@ export default function RootLayout() {
     }
 
     return (
-        <Stack>
-            <Stack.Screen name="index" options={{ headerShown: false }} />
-            <Stack.Screen name="chatwindow" options={{ headerShown: false }} />
-            <Stack.Screen name="conversation" options={{ headerShown: false }} />
-        </Stack>
+        <>
+            <Stack>
+                <Stack.Screen name="index" options={{ headerShown: false }} />
+                <Stack.Screen name="chatwindow" options={{ headerShown: false }} />
+                <Stack.Screen name="conversation" options={{ headerShown: false }} />
+            </Stack>
+            <PortalHost />
+        </>
     );
 }
