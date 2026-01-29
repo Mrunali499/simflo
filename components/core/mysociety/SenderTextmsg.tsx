@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 
-interface SendermsgTextmsgProps {
+interface SenderTextmsgProps {
     message: string;
     timestamp: Date;
 }
 
-export const SendermsgTextmsg = ({ message, timestamp }: SendermsgTextmsgProps) => {
+export const SenderTextmsg = ({ message, timestamp }: SenderTextmsgProps) => {
     const [timeString, setTimeString] = useState('Just now');
 
     useEffect(() => {

@@ -6,7 +6,7 @@ import PersonIcon from '@/assets/images/person_icon.svg';
 import { BottomActionBar } from '@/components/core/chatwindow/BottomActionBar';
 import { EmptyStateCard } from '@/components/core/chatwindow/EmptyStateCard';
 import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
-import { SendermsgTextmsg } from '@/components/core/mysociety/SendermsgTextmsg';
+import { SenderTextmsg } from '@/components/core/mysociety/SenderTextmsg';
 import { Textmsg } from '@/components/core/mysociety/Textmsg';
 import { VisitorType, VisitorTypeCard } from '@/components/core/VisitorTypeCard';
 import { router } from 'expo-router';
@@ -80,7 +80,7 @@ export default function ChatWindowPage() {
                     >
                         {messages.map((msg) => (
                             msg.isSender ? (
-                                <SendermsgTextmsg
+                                <SenderTextmsg
                                     key={msg.id}
                                     message={msg.text}
                                     timestamp={msg.timestamp}
