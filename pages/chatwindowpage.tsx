@@ -1,23 +1,43 @@
+import BoxIcon from '@/assets/images/box.svg';
+import CalendarIcon from '@/assets/images/calendar_month.svg';
+import HandshakeIcon from '@/assets/images/handshake.svg';
+import TaxiIcon from '@/assets/images/local_taxi.svg';
+import PersonIcon from '@/assets/images/person_icon.svg';
 import { BottomActionBar } from '@/components/core/chatwindow/BottomActionBar';
 import { EmptyStateCard } from '@/components/core/chatwindow/EmptyStateCard';
 import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
+import { VisitorType, VisitorTypeCard } from '@/components/core/VisitorTypeCard';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
+
+const visitorTypes: VisitorType[] = [
+    { id: 'guest', label: 'Guest', icon: PersonIcon },
+    { id: 'helper', label: 'Helper', icon: HandshakeIcon },
+    { id: 'delivery', label: 'Delivery', icon: BoxIcon },
+    { id: 'events', label: 'Events', icon: CalendarIcon },
+    { id: 'cab', label: 'Cab', icon: TaxiIcon },
+];
 
 export default function ChatWindowPage() {
     const [message, setMessage] = useState('');
+    const [showVisitorTypeCard, setShowVisitorTypeCard] = useState(false);
 
     const handlePlusPress = () => {
-        Alert.alert('Plus Button', 'Open attachment options');
+        setShowVisitorTypeCard(!showVisitorTypeCard);
     };
 
     const handleCameraPress = () => {
-        Alert.alert('Camera', 'Open camera');
+        // Handle camera press
     };
 
     const handleMicPress = () => {
-        Alert.alert('Microphone', 'Start voice recording');
+        // Handle mic press
+    };
+
+    const handleVisitorTypePress = (typeId: string) => {
+        console.log('Selected visitor type:', typeId);
+        // Handle visitor type selection
     };
 
     return (
@@ -26,8 +46,18 @@ export default function ChatWindowPage() {
 
             {/* Chat Content Area */}
             <View className="flex-1 items-center justify-center">
-                <EmptyStateCard />
+                {!showVisitorTypeCard && <EmptyStateCard />}
             </View>
+
+            {/* Visitor Type Card - appears above BottomActionBar */}
+            {showVisitorTypeCard && (
+                <View className="items-center pb-4">
+                    <VisitorTypeCard
+                        visitorTypes={visitorTypes}
+                        onTypePress={handleVisitorTypePress}
+                    />
+                </View>
+            )}
 
             {/* Bottom Action Bar */}
             <BottomActionBar
@@ -38,6 +68,6 @@ export default function ChatWindowPage() {
                 onCameraPress={handleCameraPress}
                 onMicPress={handleMicPress}
             />
-        </View >
+        </View>
     );
 }
