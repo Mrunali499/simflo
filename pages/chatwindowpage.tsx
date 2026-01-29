@@ -1,23 +1,25 @@
 import { BottomActionBar } from '@/components/core/chatwindow/BottomActionBar';
 import { EmptyStateCard } from '@/components/core/chatwindow/EmptyStateCard';
 import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
+import { VisitorTypeCard } from '@/components/core/VisitorTypeCard';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
 
 export default function ChatWindowPage() {
     const [message, setMessage] = useState('');
+    const [showVisitorTypeCard, setShowVisitorTypeCard] = useState(false);
 
     const handlePlusPress = () => {
-        Alert.alert('Plus Button', 'Open attachment options');
+        setShowVisitorTypeCard(!showVisitorTypeCard);
     };
 
     const handleCameraPress = () => {
-        Alert.alert('Camera', 'Open camera');
+        // Handle camera press
     };
 
     const handleMicPress = () => {
-        Alert.alert('Microphone', 'Start voice recording');
+        // Handle mic press
     };
 
     return (
@@ -26,8 +28,15 @@ export default function ChatWindowPage() {
 
             {/* Chat Content Area */}
             <View className="flex-1 items-center justify-center">
-                <EmptyStateCard />
+                {!showVisitorTypeCard && <EmptyStateCard />}
             </View>
+
+            {/* Visitor Type Card - appears above BottomActionBar */}
+            {showVisitorTypeCard && (
+                <View className="items-center pb-4">
+                    <VisitorTypeCard />
+                </View>
+            )}
 
             {/* Bottom Action Bar */}
             <BottomActionBar
@@ -38,6 +47,6 @@ export default function ChatWindowPage() {
                 onCameraPress={handleCameraPress}
                 onMicPress={handleMicPress}
             />
-        </View >
+        </View>
     );
 }
