@@ -1,7 +1,7 @@
 import ThreeDotIcon from '@/assets/images/3dot_icon.svg';
 import ArrowBackIcon from '@/assets/images/arrow_back_icon.svg';
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Platform, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export interface ScreenHeaderProps {
@@ -11,8 +11,10 @@ export interface ScreenHeaderProps {
 
 export function ScreenHeader({ title, onBackPress }: ScreenHeaderProps) {
     const { top } = useSafeAreaInsets();
+    const paddingTop = Platform.OS === 'web' ? 20 : top;
+
     return (
-        <View className="bg-white pt-[50px]" style={{ paddingTop: top + 50 }}>
+        <View className="bg-white" style={{ paddingTop }}>
             <View className="flex-row items-center justify-between pb-4 pl-6 pr-6">
                 {/* Left Section: Back Arrow */}
                 <TouchableOpacity
