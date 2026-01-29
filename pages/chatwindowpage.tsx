@@ -6,17 +6,19 @@ import PersonIcon from '@/assets/images/person_icon.svg';
 import { BottomActionBar } from '@/components/core/chatwindow/BottomActionBar';
 import { EmptyStateCard } from '@/components/core/chatwindow/EmptyStateCard';
 import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
+import { SenderImagemsg } from '@/components/core/mysociety/SenderImagemsg';
 import { SenderTextmsg } from '@/components/core/mysociety/SenderTextmsg';
 import { Textmsg } from '@/components/core/mysociety/Textmsg';
 import { VisitorType, VisitorTypeCard } from '@/components/core/VisitorTypeCard';
+import * as ImagePicker from 'expo-image-picker';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
-import { launchCamera } from 'react-native-image-picker';
 
 interface Message {
     id: string;
-    text: string;
+    text?: string;
+    imageUri?: string;
     timestamp: Date;
     isSender: boolean;
 }
@@ -39,22 +41,36 @@ export default function ChatWindowPage() {
     };
 
     const handleCameraPress = async () => {
-        const result = await launchCamera({
-            mediaType: 'photo',
+        // Request camera permissions
+        const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+
+        if (permissionResult.granted === false) {
+            Alert.alert('Permission Denied', 'You need to allow camera access to take photos.');
+            return;
+        }
+
+        const result = await ImagePicker.launchCameraAsync({
+            mediaTypes: ['images'],
+            allowsEditing: true,
+            aspect: [4, 3],
             quality: 1,
-            saveToPhotos: true,
         });
 
-        if (result.didCancel) {
+        if (!result.canceled) {
+            const uri = result.assets[0].uri;
+            console.log('Image captured: ', uri);
+
+            // Send the captured image as a message
+            const newMessage: Message = {
+                id: Date.now().toString(),
+                imageUri: uri,
+                timestamp: new Date(),
+                isSender: true,
+            };
+            setMessages([...messages, newMessage]);
+            Alert.alert('Camera', 'Photo sent successfully!');
+        } else {
             console.log('User cancelled image picker');
-        } else if (result.errorCode) {
-            console.log('ImagePicker Error: ', result.errorMessage);
-            Alert.alert('Error', result.errorMessage || 'Something went wrong');
-        } else if (result.assets && result.assets.length > 0) {
-            const source = result.assets[0];
-            console.log('Image captured: ', source.uri);
-            // Handle the captured image (e.g., upload it or show it in the chat)
-            Alert.alert('Camera', 'Photo captured successfully!');
         }
     };
 
@@ -95,21 +111,35 @@ export default function ChatWindowPage() {
                         className="flex-1 px-4 pt-4"
                         contentContainerStyle={{ gap: 16 }}
                     >
-                        {messages.map((msg) => (
-                            msg.isSender ? (
-                                <SenderTextmsg
-                                    key={msg.id}
-                                    message={msg.text}
-                                    timestamp={msg.timestamp}
-                                />
-                            ) : (
-                                <Textmsg
-                                    key={msg.id}
-                                    message={msg.text}
-                                    timestamp={msg.timestamp}
-                                />
-                            )
-                        ))}
+                        {messages.map((msg) => {
+                            if (msg.isSender) {
+                                if (msg.imageUri) {
+                                    return (
+                                        <SenderImagemsg
+                                            key={msg.id}
+                                            imageUri={msg.imageUri}
+                                            timestamp={msg.timestamp}
+                                        />
+                                    );
+                                }
+                                return (
+                                    <SenderTextmsg
+                                        key={msg.id}
+                                        message={msg.text || ''}
+                                        timestamp={msg.timestamp}
+                                    />
+                                );
+                            } else {
+                                // For now, handle only text messages from others
+                                return (
+                                    <Textmsg
+                                        key={msg.id}
+                                        message={msg.text || ''}
+                                        timestamp={msg.timestamp}
+                                    />
+                                );
+                            }
+                        })}
                     </ScrollView>
                 )}
             </View>
