@@ -8,5 +8,6 @@ export * from './conversation/filter-chip';
 export * from './DateSelection';
 export * from './dropdown';
 export * from './input';
+export * from './mysociety/VisitType';
 export * from './VisitorTypeCard';
 
