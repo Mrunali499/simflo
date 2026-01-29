@@ -47,7 +47,11 @@ export default function ChatWindowPage() {
 
     const handleVisitorTypePress = (typeId: string) => {
         console.log('Selected visitor type:', typeId);
-        // Handle visitor type selection
+        if (typeId === 'guest') {
+            router.push('/addguest');
+            setShowVisitorTypeCard(false);
+        }
+        // Handle other visitor types
     };
 
     const handleSendMessage = () => {

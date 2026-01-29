@@ -1,13 +1,21 @@
 import AutoRenewIcon from '@/assets/images/autorenew.svg';
 import EventIcon from '@/assets/images/event.svg';
+import { Dropdown } from '@/components/core';
 import React, { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 
+const frequencyOptions = [
+    { label: 'Weekly', value: 'weekly' },
+    { label: 'Daily', value: 'daily' },
+    { label: 'Monthly', value: 'monthly' },
+];
+
 export const VisitType = () => {
     const [selectedType, setSelectedType] = useState<'One-Time' | 'Recurring'>('One-Time');
+    const [frequency, setFrequency] = useState('');
 
     return (
-        <View className="flex-row gap-8">
+        <View className="flex-col gap-4">
             <View>
                 <Text className="text-[13px] font-semibold leading-[21px] tracking-[-0.32px] text-text-dark mb-4 font-inter">Visit Type</Text>
                 <View className="flex-row gap-8">
@@ -54,6 +62,18 @@ export const VisitType = () => {
                     </Pressable>
                 </View>
             </View>
+
+            {selectedType === 'Recurring' && (
+                <View>
+                    <Dropdown
+                        label="Frequency"
+                        placeholder="Select frequency"
+                        options={frequencyOptions}
+                        value={frequency}
+                        onSelect={setFrequency}
+                    />
+                </View>
+            )}
         </View>
     );
 };
