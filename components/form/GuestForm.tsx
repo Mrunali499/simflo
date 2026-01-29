@@ -7,7 +7,7 @@ export const GuestForm = () => {
 
     return (
         <View
-            className="w-[366px] min-h-[625px] bg-white border border-[#CDCDCD] rounded-[13px] p-4 flex-col gap-4"
+            className="w-full min-h-[625px] bg-white border border-[#CDCDCD] rounded-[13px] p-4 flex-col gap-4"
             style={{
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 3 },

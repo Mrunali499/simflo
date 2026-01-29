@@ -25,7 +25,7 @@ export function TimeSlotPicker({
                 <TouchableOpacity
                     onPress={onPressStart}
                     activeOpacity={0.7}
-                    className="bg-white rounded-[12px] flex-1 h-[46px] border border-card shadow-sm flex-row items-center relative"
+                    className="bg-white rounded-[12px] flex-1 h-[46px] border border-border-default shadow-sm flex-row items-center relative"
                 >
                     <Text className="absolute left-[12px] top-[4px] text-[10px] leading-[14px] font-medium text-date-text tracking-[-0.32px]">From</Text>
                     <View className="absolute left-[12px] top-[22px]">
@@ -38,7 +38,7 @@ export function TimeSlotPicker({
                 <TouchableOpacity
                     onPress={onPressEnd}
                     activeOpacity={0.7}
-                    className="bg-white rounded-[12px] flex-1 h-[46px] border border-card shadow-sm flex-row items-center relative"
+                    className="bg-white rounded-[12px] flex-1 h-[46px] border border-border-default shadow-sm flex-row items-center relative"
                 >
                     <Text className="absolute left-[12px] top-[4px] text-[10px] leading-[14px] font-medium text-date-text tracking-[-0.32px]">To</Text>
                     <View className="absolute left-[12px] top-[22px]">

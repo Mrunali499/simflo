@@ -18,11 +18,11 @@ export const VisitType = () => {
         <View className="flex-col gap-4">
             <View>
                 <Text className="text-[13px] font-semibold leading-[21px] tracking-[-0.32px] text-text-dark mb-4 font-inter">Visit Type</Text>
-                <View className="flex-row gap-8">
+                <View className="flex-row gap-4 justify-center">
                     {/* One-Time Button */}
                     <Pressable
                         onPress={() => setSelectedType('One-Time')}
-                        className={`w-[145px] h-[46px] flex-row items-center justify-center rounded-[9px] border px-4 gap-2 box-border ${selectedType === 'One-Time'
+                        className={`flex-1 max-w-[145px] h-[46px] flex-row items-center justify-center rounded-[9px] border px-4 gap-2 box-border ${selectedType === 'One-Time'
                             ? 'bg-[--visit-type-active-bg] border-primary'
                             : 'bg-white border-border-default'
                             }`}
@@ -43,7 +43,7 @@ export const VisitType = () => {
                     {/* Recurring Button */}
                     <Pressable
                         onPress={() => setSelectedType('Recurring')}
-                        className={`w-[145px] h-[46px] flex-row items-center justify-center rounded-[9px] border px-4 gap-2 box-border ${selectedType === 'Recurring'
+                        className={`flex-1 max-w-[145px] h-[46px] flex-row items-center justify-center rounded-[9px] border px-4 gap-2 box-border ${selectedType === 'Recurring'
                             ? 'bg-[--visit-type-active-bg] border-primary'
                             : 'bg-white border-border-default'
                             }`}

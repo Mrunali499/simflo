@@ -1,10 +1,10 @@
+import DropdownArrow from '@/assets/images/dropdown-arrow.svg';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react-native';
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
@@ -44,7 +44,7 @@ export const Dropdown = ({
                         <Text className={`font-medium text-[13px] leading-[21px] tracking-[-0.32px] ${selectedOption ? 'text-black' : 'text-black'}`}>
                             {selectedOption ? selectedOption.label : placeholder}
                         </Text>
-                        <ChevronDown size={20} color="var(--black)" />
+                        <DropdownArrow width={8} height={12} />
                     </Pressable>
                 </DropdownMenuTrigger>
 

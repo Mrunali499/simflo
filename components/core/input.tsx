@@ -32,7 +32,7 @@ export const Input = React.forwardRef<TextInput, InputProps>(
                 )}
                 <TextInput
                     ref={ref}
-                    className={`font-inter w-[324px] h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark ${inputClassName}`}
+                    className={`font-inter w-full h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark ${inputClassName}`}
                     placeholderTextColor="var(--text-placeholder)"
                     {...props}
                 />
