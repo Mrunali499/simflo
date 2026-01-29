@@ -32,6 +32,7 @@ module.exports = {
         "border-subtle": "var(--border-subtle)",
         "text-figma-gray": "var(--text-figma-gray)",
         "chat-border": "var(--border-chat-item)",
+        "border-card": "var(--border-card)",
       },
       fontFamily: {
         inter: ["Inter_400Regular", "Inter_500Medium", "Inter_600SemiBold", "Inter_700Bold"],
