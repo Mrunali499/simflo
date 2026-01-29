@@ -1,4 +1,4 @@
-import { BottomTabNavigation, ChatListItem, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, VisitorTypeCard } from '@/components/core';
+import { BottomTabNavigation, ChatListItem, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, VisitorTypeCard, VisitType } from '@/components/core';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { MoreVertical } from 'lucide-react-native';
@@ -64,6 +64,11 @@ export default function ComponentShowcase() {
                         <View className="items-center">
                             <VisitorTypeCard />
                         </View>
+                    </View>
+
+                    {/* --- Section: Visit Type --- */}
+                    <View className="space-y-4">
+                        <VisitType />
                     </View>
 
                     {/* --- Section: Filter Chips --- */}
