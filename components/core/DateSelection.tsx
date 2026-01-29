@@ -46,7 +46,7 @@ export const DateSelection = () => {
                 </View>
 
                 {/* Date Button */}
-                <Pressable className="w-full bg-white border border-dashed border-border-default rounded-[9px] h-[36px] flex-row items-center justify-center space-x-2 active:opacity-80">
+                <Pressable className="w-full bg-white border border-dashed border-border-default rounded-[9px] h-[36px] flex-row items-center justify-center gap-2 active:opacity-80">
                     <CalendarIcon width={20} height={20} fill="var(--primary)" />
                     <Text className="font-inter text-primary font-medium text-sm">Custom Date</Text>
                 </Pressable>
