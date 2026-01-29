@@ -1,23 +1,36 @@
 import CalendarIcon from '@/assets/images/custom-date.svg';
 import { Text } from '@/components/ui/text';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { Calendar } from './Calendar';
 
-const dates = [
-    { id: '1', day: 'Mon', date: '12' },
-    { id: '2', day: 'Tue', date: '13' },
-    { id: '3', day: 'Wed', date: '14' },
-    { id: '4', day: 'Thur', date: '15' },
-    { id: '5', day: 'Fri', date: '16' },
-    { id: '6', day: 'Sat', date: '17' },
-    { id: '7', day: 'Sun', date: '18' },
-];
-
 export const DateSelection = () => {
-    const [selectedDateId, setSelectedDateId] = useState('3');
+    const [selectedDateId, setSelectedDateId] = useState('0'); // Select today by default
     const [showCalendar, setShowCalendar] = useState(false);
     const [customDate, setCustomDate] = useState<Date | null>(null);
+
+    // Generate next 7 days from today
+    const dates = useMemo(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Reset time to start of day
+
+        const nextSevenDays = [];
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(today);
+            date.setDate(today.getDate() + i);
+
+            const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+            const dateNum = date.getDate().toString();
+
+            nextSevenDays.push({
+                id: i.toString(),
+                day: dayName,
+                date: dateNum,
+                fullDate: date,
+            });
+        }
+        return nextSevenDays;
+    }, []);
 
     const handleDateSelect = (date: Date) => {
         setCustomDate(date);
@@ -29,6 +42,12 @@ export const DateSelection = () => {
         const day = date.toLocaleDateString('en-US', { weekday: 'short' });
         const dateNum = date.getDate();
         return { day, date: dateNum.toString() };
+    };
+
+    const isSameDay = (date1: Date, date2: Date) => {
+        return date1.getDate() === date2.getDate() &&
+            date1.getMonth() === date2.getMonth() &&
+            date1.getFullYear() === date2.getFullYear();
     };
 
     return (
@@ -63,7 +82,7 @@ export const DateSelection = () => {
                     })}
 
                     {/* Custom Date Display */}
-                    {customDate && (
+                    {customDate && !dates.some(d => isSameDay(d.fullDate, customDate)) && (
                         <Pressable
                             onPress={() => setShowCalendar(true)}
                             className="flex-1 h-[40px] rounded-[8px] items-center justify-center bg-primary"
