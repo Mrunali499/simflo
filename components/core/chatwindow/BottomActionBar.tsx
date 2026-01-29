@@ -11,6 +11,7 @@ interface BottomActionBarProps {
     onCameraPress?: () => void;
     onMicPress?: () => void;
     onChangeText?: (text: string) => void;
+    onSubmitEditing?: () => void;
     value?: string;
 }
 
@@ -20,6 +21,7 @@ export const BottomActionBar = ({
     onCameraPress,
     onMicPress,
     onChangeText,
+    onSubmitEditing,
     value,
 }: BottomActionBarProps) => {
     const [isPlusActive, setIsPlusActive] = useState(false);
@@ -52,6 +54,8 @@ export const BottomActionBar = ({
                     placeholderTextColor="var(--input-placeholder)"
                     value={value}
                     onChangeText={onChangeText}
+                    onSubmitEditing={onSubmitEditing}
+                    returnKeyType="send"
                 />
             </View>
 

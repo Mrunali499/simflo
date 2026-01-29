@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 
-interface TextmsgProps {
+interface SendermsgTextmsgProps {
     message: string;
     timestamp: Date;
 }
 
-export const Textmsg = ({ message, timestamp }: TextmsgProps) => {
+export const SendermsgTextmsg = ({ message, timestamp }: SendermsgTextmsgProps) => {
     const [timeString, setTimeString] = useState('Just now');
 
     useEffect(() => {
@@ -34,18 +34,15 @@ export const Textmsg = ({ message, timestamp }: TextmsgProps) => {
     }, [timestamp]);
 
     return (
-        <View className="flex-row items-start gap-3 self-start">
-            {/* Profile Icon */}
-            <View className="w-[32px] h-[32px] rounded-full bg-primary items-center justify-center" />
-
+        <View className="flex-row items-start gap-3 self-end">
             {/* Message Bubble */}
-            <View className="flex-col gap-1 items-start shrink">
+            <View className="flex-col gap-1 items-end shrink">
                 <View
-                    className="max-w-[302px] min-h-[63px] bg-[#F2F2F2] rounded-tr-[13px] rounded-br-[13px] rounded-bl-[13px] rounded-tl-none p-4 justify-center self-start"
+                    className="max-w-[302px] min-h-[63px] bg-primary rounded-tl-[13px] rounded-bl-[13px] rounded-br-[13px] rounded-tr-none p-4 justify-center self-end"
                 >
-                    <Text className="font-medium text-[14px] leading-[21px] tracking-[-0.32px]  text-text-dark">{message}</Text>
+                    <Text className="font-medium text-[14px] leading-[21px] tracking-[-0.32px] text-white">{message}</Text>
                 </View>
-                <Text className="font-medium text-[11px] leading-[21px] tracking-[-0.32px] text-xs text-xs text-text-secondary ml-1">{timeString}</Text>
+                <Text className="font-medium text-[11px] leading-[21px] tracking-[-0.32px] text-xs text-text-secondary mr-1">{timeString}</Text>
             </View>
         </View>
     );
