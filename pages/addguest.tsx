@@ -9,8 +9,8 @@ export default function AddGuestPage() {
     return (
         <View className="flex-1 bg-white">
             <ChatHeader title="Add Guest" onClose={() => router.back()} />
-            <ScrollView className="flex-1 p-4">
-                <View className="pb-8">
+            <ScrollView className="flex-1 p-4" showsVerticalScrollIndicator={false}>
+                <View style={{ paddingBottom: 60 }}>
                     <View className="mb-6">
                         <Textmsg
                             message="Please fill in the guest details below for quick entry."
