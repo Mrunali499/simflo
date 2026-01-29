@@ -1,4 +1,5 @@
 import { BottomTabNavigation, ChatListItem, Contact, Button as CoreButton, DateSelection, Dropdown, FilterChip, Input, SocialPlatformSelector, Textmsg, VisitType } from '@/components/core';
+
 import { GuestForm } from '@/components/form/GuestForm';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
@@ -140,6 +141,8 @@ export default function ComponentShowcase() {
                         <GuestForm />
                     </View>
 
+
+
                     {/* ---  Core Button --- */}
                     <View className="space-y-4">
                         <Text variant="h2" className="font-medium text-gray-800">Core Button</Text>
@@ -147,9 +150,9 @@ export default function ComponentShowcase() {
                             <CoreButton title="Continue" onPress={() => console.log('Pressed')} />
                         </View>
                     </View>
-                </View >
-            </ScrollView >
+                </View>
+            </ScrollView>
             <BottomTabNavigation />
-        </View >
+        </View>
     );
 }
