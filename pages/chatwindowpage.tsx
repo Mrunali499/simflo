@@ -51,7 +51,7 @@ export default function ChatWindowPage() {
 
             {/* Visitor Type Card - appears above BottomActionBar */}
             {showVisitorTypeCard && (
-                <View className="items-center pb-4">
+                <View className="items-start pl-6 pb-4">
                     <VisitorTypeCard
                         visitorTypes={visitorTypes}
                         onTypePress={handleVisitorTypePress}

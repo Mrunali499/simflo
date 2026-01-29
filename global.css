@@ -28,5 +28,6 @@
     --border-chat-item: rgba(210, 210, 210, 0.27);
     --border-card: #E5E7EB;
     --visit-type-active-bg: #F0F2FC;
+    --card-shadow: rgba(0, 0, 0, 0.25);
   }
 }

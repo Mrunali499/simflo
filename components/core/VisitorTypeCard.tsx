@@ -15,7 +15,7 @@ interface VisitorTypeCardProps {
 export const VisitorTypeCard = ({ visitorTypes, onTypePress }: VisitorTypeCardProps) => {
     return (
         <View
-            className="w-[331px] md:w-full h-[254px] md:h-auto bg-white rounded-[20px] p-5 flex-row flex-wrap md:flex-nowrap gap-x-[15px] gap-y-[20px] md:justify-around shadow-sm shadow-black/25 android:elevation-5"
+            className="w-[331px] md:w-full h-[254px] md:h-auto bg-white rounded-[20px] p-5 flex-row flex-wrap md:flex-nowrap gap-x-[15px] gap-y-[20px] md:justify-around shadow-[0_1px_4px_var(--card-shadow)] android:elevation-5"
         >
             {visitorTypes.map((item) => (
                 <Pressable
