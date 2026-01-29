@@ -1,7 +1,8 @@
 import CalendarIcon from '@/assets/images/custom-date.svg';
 import { Text } from '@/components/ui/text';
 import React, { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
+import { Calendar } from './Calendar';
 
 const dates = [
     { id: '1', day: 'Mon', date: '12' },
@@ -15,6 +16,20 @@ const dates = [
 
 export const DateSelection = () => {
     const [selectedDateId, setSelectedDateId] = useState('3');
+    const [showCalendar, setShowCalendar] = useState(false);
+    const [customDate, setCustomDate] = useState<Date | null>(null);
+
+    const handleDateSelect = (date: Date) => {
+        setCustomDate(date);
+        setSelectedDateId(''); // Deselect preset dates
+        setShowCalendar(false);
+    };
+
+    const formatCustomDate = (date: Date) => {
+        const day = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const dateNum = date.getDate();
+        return { day, date: dateNum.toString() };
+    };
 
     return (
         <View className="space-y-2">
@@ -30,7 +45,10 @@ export const DateSelection = () => {
                         return (
                             <Pressable
                                 key={item.id}
-                                onPress={() => setSelectedDateId(item.id)}
+                                onPress={() => {
+                                    setSelectedDateId(item.id);
+                                    setCustomDate(null);
+                                }}
                                 className={`flex-1 h-[40px] rounded-[8px] items-center justify-center ${isSelected ? 'bg-primary' : 'bg-date-card-bg'
                                     }`}
                             >
@@ -43,14 +61,53 @@ export const DateSelection = () => {
                             </Pressable>
                         );
                     })}
+
+                    {/* Custom Date Display */}
+                    {customDate && (
+                        <Pressable
+                            onPress={() => setShowCalendar(true)}
+                            className="flex-1 h-[40px] rounded-[8px] items-center justify-center bg-primary"
+                        >
+                            <Text className="font-inter font-medium text-[10px] text-white">
+                                {formatCustomDate(customDate).day}
+                            </Text>
+                            <Text className="font-inter font-medium text-[10px] text-white">
+                                {formatCustomDate(customDate).date}
+                            </Text>
+                        </Pressable>
+                    )}
                 </View>
 
                 {/* Date Button */}
-                <Pressable className="w-full bg-white border border-dashed border-border-default rounded-[9px] h-[36px] flex-row items-center justify-center gap-2 active:opacity-80">
+                <Pressable
+                    onPress={() => setShowCalendar(true)}
+                    className="w-full bg-white border border-dashed border-border-default rounded-[9px] h-[36px] flex-row items-center justify-center gap-2 active:opacity-80"
+                >
                     <CalendarIcon width={20} height={20} fill="var(--primary)" />
                     <Text className="font-inter text-primary font-medium text-sm">Custom Date</Text>
                 </Pressable>
             </View>
+
+            {/* Calendar Modal */}
+            <Modal
+                visible={showCalendar}
+                transparent
+                animationType="fade"
+                onRequestClose={() => setShowCalendar(false)}
+            >
+                <Pressable
+                    className="flex-1 bg-black/50 items-center justify-center p-4"
+                    onPress={() => setShowCalendar(false)}
+                >
+                    <Pressable onPress={(e) => e.stopPropagation()}>
+                        <Calendar
+                            onDateSelect={handleDateSelect}
+                            selectedDate={customDate || undefined}
+                            minDate={new Date()}
+                        />
+                    </Pressable>
+                </Pressable>
+            </Modal>
         </View>
     );
 };
