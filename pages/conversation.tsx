@@ -1,11 +1,18 @@
-import { BottomTabNavigation, ChatListItem, ConversationHeader, FeaturePage, FilterList } from '@/components/core';
+import { BottomTabNavigation, ConversationHeader, ConversationList, FeaturePage, FilterList } from '@/components/core';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 
 export default function ConversationPage() {
     const [selectedFilter, setSelectedFilter] = useState('All');
     const [activeTab, setActiveTab] = useState('chat');
+
+    const chatData = Array(5).fill({
+        name: 'Mathew Keith',
+        message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        time: '10 min',
+        unreadCount: 2
+    });
 
     return (
         <View className="flex-1 bg-white">
@@ -13,13 +20,10 @@ export default function ConversationPage() {
                 <>
                     <ConversationHeader />
                     <FilterList selectedFilter={selectedFilter} onSelect={setSelectedFilter} />
-                    <ScrollView className="flex-1 mt-2">
-                        {/* Demonstrating multiple list items */}
-                        <ChatListItem onPress={() => router.push('/chatwindow')} />
-                        <ChatListItem onPress={() => router.push('/chatwindow')} />
-                        <ChatListItem onPress={() => router.push('/chatwindow')} />
-                        <ChatListItem onPress={() => router.push('/chatwindow')} />
-                    </ScrollView>
+                    <ConversationList
+                        data={chatData}
+                        onItemPress={() => router.push('/chatwindow')}
+                    />
                 </>
             )}
 
