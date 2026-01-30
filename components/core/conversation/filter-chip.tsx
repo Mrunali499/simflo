@@ -75,12 +75,13 @@ export function FilterList({
     selectedFilter = 'All',
     onSelect,
     onOptionsPress,
+    filters = ['All', 'Favorite', 'Unread', 'Groups', 'My Society'],
 }: {
     selectedFilter?: string;
     onSelect?: (filter: string) => void;
     onOptionsPress?: () => void;
+    filters?: string[];
 }) {
-    const filters = ['All', 'Favorite', 'Unread', 'Groups', 'My Society'];
 
     return (
         <View className="flex-row items-center px-4 py-2">

@@ -3,7 +3,7 @@ import VectorIcon from '@/assets/images/Vector.svg';
 import ChatIcon from '@/assets/images/chat_bubble.svg';
 import PersonIcon from '@/assets/images/person.svg';
 import StacksIcon from '@/assets/images/stacks.svg';
-import React, { useState } from 'react';
+import React from 'react';
 import { Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -15,8 +15,12 @@ const tabs = [
     { id: 'profile', icon: PersonIcon },
 ];
 
-export const BottomTabNavigation = () => {
-    const [activeTab, setActiveTab] = useState('chat');
+interface BottomTabNavigationProps {
+    activeTab?: string;
+    onTabChange?: (tabId: string) => void;
+}
+
+export const BottomTabNavigation = ({ activeTab = 'chat', onTabChange }: BottomTabNavigationProps) => {
 
     return (
         <SafeAreaView
@@ -28,7 +32,7 @@ export const BottomTabNavigation = () => {
                 return (
                     <Pressable
                         key={tab.id}
-                        onPress={() => setActiveTab(tab.id)}
+                        onPress={() => onTabChange?.(tab.id)}
                         className="items-center justify-center p-2"
 
                     >

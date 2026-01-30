@@ -8,6 +8,7 @@ export * from './conversation/conversationList';
 export * from './conversation/filter-chip';
 export * from './DateSelection';
 export * from './dropdown';
+export * from './feature/FeaturePage';
 export * from './input';
 export * from './mysociety/contact';
 export * from './mysociety/GuestVisitCard';

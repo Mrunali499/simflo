@@ -4,13 +4,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Input } from '@/components/core';
 
-export const ConversationHeader = () => {
+export const ConversationHeader = ({ title = 'Conversations' }: { title?: string }) => {
     const insets = useSafeAreaInsets();
 
     return (
         <View className="bg-white pb-3" style={{ paddingTop: Math.max(insets.top, 20) }}>
             <Text className="font-inter ml-[18px] mt-4 text-[18px] font-semibold text-text-dark leading-[21px] tracking-[-0.32px]">
-                Conversations
+                {title}
             </Text>
             <Input
                 placeholder="Search..."
