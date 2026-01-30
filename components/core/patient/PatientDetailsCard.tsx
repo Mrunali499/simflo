@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { ClipboardList, FileText, Mic, Play, Search, Stethoscope } from 'lucide-react-native';
+import { ClipboardList, FileText, Mic, Play, Plus, Search, Stethoscope } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
@@ -23,7 +23,7 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
     };
 
     return (
-        <View className="w-[272px] bg-white rounded-[13px] self-end shadow-custom-card mb-4 border border-border-subtle">
+        <View className="w-[272px] bg-white rounded-[13px] self-end shadow-custom-card mb-4 border border-border-guest">
             {/* Header */}
             <View className="w-full h-[47px] bg-[--visit-type-active-bg] rounded-t-[13px] flex-row items-center justify-between px-4">
                 <Text className="font-bold text-[15px] text-black tracking-widest font-inter flex-1 mr-2" numberOfLines={1}>{patientName}</Text>
@@ -108,9 +108,12 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                     </View>
                     <View className="pl-[39px]">
                         <Text className="text-[11px] text-text-header font-inter mb-2">Common Cold, Mild Fever</Text>
-                        <Button className="bg-primary rounded-full h-[28px] px-3 self-start">
-                            <Text className="text-[10px] text-white font-medium font-inter">+ Add Prescription</Text>
-                        </Button>
+                        <View className="items-center self-start gap-1">
+                            <TouchableOpacity className="w-[30px] h-[30px] bg-primary rounded-full items-center justify-center">
+                                <Icon as={Plus} className="text-white" size={16} />
+                            </TouchableOpacity>
+                            <Text className="text-[8px] text-text-secondary font-medium font-inter">Add Prescription</Text>
+                        </View>
                     </View>
                 </View>
 

@@ -33,6 +33,7 @@ module.exports = {
         "text-figma-gray": "var(--text-figma-gray)",
         "chat-border": "var(--border-chat-item)",
         "border-card": "var(--border-card)",
+        "border-guest": "#CDCDCD",
       },
       fontFamily: {
         inter: ["Inter_400Regular", "Inter_500Medium", "Inter_600SemiBold", "Inter_700Bold"],
