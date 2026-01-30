@@ -1,6 +1,8 @@
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { Input } from '@/components/core';
 
 export const ConversationHeader = () => {
     const insets = useSafeAreaInsets();
@@ -10,13 +12,11 @@ export const ConversationHeader = () => {
             <Text className="font-inter ml-[18px] mt-4 text-[18px] font-semibold text-text-dark leading-[21px] tracking-[-0.32px]">
                 Conversations
             </Text>
-            <View className="mx-4 mt-[10px] h-[41px] bg-search-bg rounded-[8px] justify-center px-4">
-                <TextInput
-                    placeholder="Search..."
-                    placeholderTextColor="var(--search-placeholder)"
-                    className="font-inter text-base text-text-dark"
-                />
-            </View>
+            <Input
+                placeholder="Search..."
+                containerClassName="mx-4 mt-[10px] mb-0"
+                inputClassName="bg-search-bg h-[41px] border-0 rounded-[8px] text-base placeholder:text-search-placeholder caret-text-dark"
+            />
         </View>
     );
 };

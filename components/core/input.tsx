@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
 
@@ -25,15 +26,20 @@ export const Input = React.forwardRef<TextInput, InputProps>(
             <View className={`mb-4 ${containerClassName}`}>
                 {label && (
                     <Text
-                        className={`font-inter font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[6px] ${labelClassName}`}
+                        className={cn(
+                            'font-inter font-semibold text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark mb-[6px]',
+                            labelClassName
+                        )}
                     >
                         {label}
                     </Text>
                 )}
                 <TextInput
                     ref={ref}
-                    className={`font-inter w-full h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark ${inputClassName}`}
-                    placeholderTextColor="var(--text-placeholder)"
+                    className={cn(
+                        'font-inter w-full h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark placeholder:text-text-placeholder',
+                        inputClassName
+                    )}
                     {...props}
                 />
                 {error && (
