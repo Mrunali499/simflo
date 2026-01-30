@@ -5,7 +5,7 @@ import { View } from 'react-native';
 
 export default function ConversationPage() {
     const [selectedFilter, setSelectedFilter] = useState('All');
-    const [activeTab, setActiveTab] = useState('chat');
+    const [activeTab, setActiveTab] = useState('feature');
 
     const chatData = Array(5).fill({
         name: 'Mathew Keith',

@@ -1,4 +1,5 @@
 import { ConversationHeader, ConversationList, FilterList, ToggleSwitch } from '@/components/core';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 
@@ -43,7 +44,14 @@ export const FeaturePage = () => {
             {selectedFilter === 'My Clinic' && (
                 <ConversationList
                     data={isOpdMode ? patientData : normalData}
-                    onItemPress={() => { }}
+                    onItemPress={(item) => {
+                        if (isOpdMode) {
+                            router.push({ pathname: '/patientchatwindow', params: { name: item.name } });
+                        } else {
+                            // Normal chat navigation if needed
+                            router.push('/chatwindow');
+                        }
+                    }}
                 />
             )}
         </View>

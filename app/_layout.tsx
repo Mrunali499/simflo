@@ -49,6 +49,7 @@ export default function RootLayout() {
                 <Stack.Screen name="chatwindow" options={{ headerShown: false }} />
                 <Stack.Screen name="conversation" options={{ headerShown: false }} />
                 <Stack.Screen name="addguest" options={{ headerShown: false }} />
+                <Stack.Screen name="patientchatwindow" options={{ headerShown: false }} />
             </Stack>
             <PortalHost />
         </>
