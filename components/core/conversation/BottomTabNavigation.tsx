@@ -39,14 +39,14 @@ export const BottomTabNavigation = ({ activeTab = 'chat', onTabChange }: BottomT
                         {tab.id === 'feature' ? (
                             <Image
                                 source={tab.icon}
-                                style={{ width: 20, height: 20, tintColor: isActive ? 'var(--primary)' : 'var(--icon-inactive)' }}
+                                style={{ width: 20, height: 20, tintColor: isActive ? '#7B54FA' : '#9CA3AF' }}
                                 resizeMode="contain"
                             />
                         ) : (
                             <tab.icon
                                 width={20}
                                 height={20}
-                                fill={isActive ? 'var(--primary)' : 'var(--icon-inactive)'}
+                                fill={isActive ? '#7B54FA' : '#9CA3AF'}
                             />
                         )}
                     </Pressable>
