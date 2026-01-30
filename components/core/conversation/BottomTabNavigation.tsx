@@ -1,3 +1,4 @@
+import FeatureIcon from '@/assets/images/Feature_icon.svg';
 import VectorIcon from '@/assets/images/Vector.svg';
 import ChatIcon from '@/assets/images/chat_bubble.svg';
 import PersonIcon from '@/assets/images/person.svg';
@@ -7,6 +8,7 @@ import { Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const tabs = [
+    { id: 'feature', icon: FeatureIcon },
     { id: 'chat', icon: ChatIcon },
     { id: 'grid', icon: VectorIcon },
     { id: 'layers', icon: StacksIcon },
