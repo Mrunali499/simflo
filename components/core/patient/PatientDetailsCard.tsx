@@ -1,8 +1,7 @@
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { ClipboardList, FileText, Mic, Play, Plus, Search, Stethoscope } from 'lucide-react-native';
+import { ClipboardList, FileText, Mic, Play, Search, Stethoscope } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
@@ -79,9 +78,6 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                             </View>
                             <Text className="text-[12px] font-bold text-text-header font-inter">Medicine</Text>
                         </View>
-                        <TouchableOpacity className="w-[24px] h-[24px] bg-primary/10 rounded-full items-center justify-center">
-                            <Icon as={Plus} className="text-primary" size={14} />
-                        </TouchableOpacity>
                     </View>
 
                     <View className="gap-2 pl-1">
@@ -91,7 +87,6 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                                     <Text className="text-[11px] font-medium text-text-header font-inter">{med.name}</Text>
                                     <Text className="text-[10px] text-text-secondary font-inter">({med.dosage})</Text>
                                 </View>
-                                <Checkbox className="w-4 h-4" checked={med.taken} onCheckedChange={() => toggleMedicine(med.id)} />
                             </View>
                         ))}
                     </View>
