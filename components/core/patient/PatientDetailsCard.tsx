@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { ClipboardList, FileText, Mic, Plus, Search, Stethoscope } from 'lucide-react-native';
+import { ClipboardList, FileText, Mic, Play, Plus, Search, Stethoscope } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { Modal, TouchableOpacity, View } from 'react-native';
 import { PrescriptionUpload } from './PrescriptionUpload';
@@ -59,7 +59,14 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                         </View>
                     </View>
 
-                    {/* Buttons removed */}
+                    <View className="flex-row items-center justify-between">
+                        <TouchableOpacity className="flex-row items-center gap-1.5">
+                            <View className="w-[31px] h-[31px] bg-white border border-primary rounded-full items-center justify-center">
+                                <Icon as={Play} className="text-primary fill-primary" size={14} />
+                            </View>
+                            <Text className="text-[10px] font-medium text-text-header font-inter">Play</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
                 {/* Medicine Section */}
@@ -84,9 +91,7 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                         ))}
                     </View>
 
-                    <Button className="bg-primary rounded-full h-[28px] px-3 flex-row gap-1 self-start mt-2">
-                        <Text className="text-[10px] text-white font-medium font-inter">Mark as Done</Text>
-                    </Button>
+
                 </View>
 
                 <View className="h-[1px] bg-border-subtle mb-3" />
@@ -101,7 +106,7 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                     </View>
                     <View className="pl-[39px]">
                         <Text className="text-[11px] text-text-header font-inter mb-2">Common Cold, Mild Fever</Text>
-                        <View className="flex-row items-center gap-4 mt-2">
+                        <View className="flex-row items-center justify-between mt-2 pr-2">
                             <View className="items-center gap-1 relative z-40">
                                 <TouchableOpacity
                                     className="w-[30px] h-[30px] bg-primary rounded-full items-center justify-center"
@@ -126,6 +131,9 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                                 <Text className="text-[8px] text-text-secondary font-inter">Analysis</Text>
                             </TouchableOpacity>
                         </View>
+                        <Button className="bg-primary rounded-full h-[28px] px-3 flex-row gap-1 self-start mt-3">
+                            <Text className="text-[10px] text-white font-medium font-inter">Mark as Done</Text>
+                        </Button>
                     </View>
                 </View>
 
