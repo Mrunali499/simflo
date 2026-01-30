@@ -16,5 +16,6 @@ export * from './mysociety/Textmsg';
 export * from './mysociety/VisitType';
 export * from './SocialPlatformSelector';
 export * from './TimeSlotPicker';
+export * from './ToggleSwitch';
 export * from './VisitorTypeCard';
 
