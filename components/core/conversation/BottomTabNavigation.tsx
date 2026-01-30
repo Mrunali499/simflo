@@ -1,10 +1,10 @@
-import FeatureIcon from '@/assets/images/Feature_icon.svg';
+import FeatureIcon from '@/assets/images/Feature_icon.png';
 import VectorIcon from '@/assets/images/Vector.svg';
 import ChatIcon from '@/assets/images/chat_bubble.svg';
 import PersonIcon from '@/assets/images/person.svg';
 import StacksIcon from '@/assets/images/stacks.svg';
 import React from 'react';
-import { Pressable } from 'react-native';
+import { Image, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const tabs = [
@@ -36,11 +36,19 @@ export const BottomTabNavigation = ({ activeTab = 'chat', onTabChange }: BottomT
                         className="items-center justify-center p-2"
 
                     >
-                        <tab.icon
-                            width={20}
-                            height={20}
-                            fill={isActive ? '#7B54FA' : '#9CA3AF'}
-                        />
+                        {tab.id === 'feature' ? (
+                            <Image
+                                source={tab.icon}
+                                style={{ width: 20, height: 20, tintColor: isActive ? 'var(--primary)' : 'var(--icon-inactive)' }}
+                                resizeMode="contain"
+                            />
+                        ) : (
+                            <tab.icon
+                                width={20}
+                                height={20}
+                                fill={isActive ? 'var(--primary)' : 'var(--icon-inactive)'}
+                            />
+                        )}
                     </Pressable>
                 );
             })}
