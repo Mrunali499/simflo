@@ -1,9 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { ClipboardList, FileText, Mic, Play, Plus, Search, Stethoscope } from 'lucide-react-native';
+import { ClipboardList, FileText, Mic, Plus, Search, Stethoscope } from 'lucide-react-native';
 import React, { useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Modal, TouchableOpacity, View } from 'react-native';
+import { PrescriptionUpload } from './PrescriptionUpload';
 
 interface Medicine {
     id: string;
@@ -17,13 +18,23 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
         { id: '1', name: 'Paracetamol', dosage: '500mg', taken: true },
         { id: '2', name: 'Amoxicillin', dosage: '250mg', taken: true },
     ]);
+    const [isUploadVisible, setIsUploadVisible] = useState(false);
 
     const toggleMedicine = (id: string) => {
         setMedicines(prev => prev.map(m => m.id === id ? { ...m, taken: !m.taken } : m));
     };
 
+    const handlePrescriptionSubmit = () => {
+        // Handle submission logic here
+        setIsUploadVisible(false);
+    };
+
+    const handleOpenUpload = () => {
+        setIsUploadVisible(true);
+    };
+
     return (
-        <View className="w-[272px] bg-white rounded-[13px] self-end shadow-custom-card mb-4 border border-border-guest">
+        <View className="w-[272px] bg-white rounded-[13px] self-end shadow-custom-card mb-4 border border-border-guest z-10">
             {/* Header */}
             <View className="w-full h-[47px] bg-[--visit-type-active-bg] rounded-t-[13px] flex-row items-center justify-between px-4">
                 <Text className="font-bold text-[15px] text-black tracking-widest font-inter flex-1 mr-2" numberOfLines={1}>{patientName}</Text>
@@ -33,7 +44,7 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
             </View>
 
             {/* Content */}
-            <View className="p-4 pt-[11px]">
+            <View className="p-4 pt-[11px] z-20">
                 <Text className="text-[10px] text-text-secondary font-inter mb-3">Friday, Jan 30, 2026-30, 4:23 PM</Text>
 
                 {/* Audio Section */}
@@ -48,25 +59,7 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                         </View>
                     </View>
 
-                    <View className="flex-row items-center justify-between">
-                        <TouchableOpacity className="flex-row items-center gap-1.5">
-                            <View className="w-[31px] h-[31px] bg-white border border-primary rounded-full items-center justify-center">
-                                <Icon as={Play} className="text-primary fill-primary" size={14} />
-                            </View>
-                            <Text className="text-[10px] font-medium text-text-header font-inter">Play</Text>
-                        </TouchableOpacity>
-
-                        <View className="flex-row gap-2">
-                            <TouchableOpacity className="items-center">
-                                <Icon as={FileText} className="text-primary" size={16} />
-                                <Text className="text-[8px] text-text-secondary font-inter mt-0.5">Transcript</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity className="items-center">
-                                <Icon as={Search} className="text-primary" size={16} />
-                                <Text className="text-[8px] text-text-secondary font-inter mt-0.5">Analysis</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                    {/* Buttons removed */}
                 </View>
 
                 {/* Medicine Section */}
@@ -99,7 +92,7 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                 <View className="h-[1px] bg-border-subtle mb-3" />
 
                 {/* Diagnosis Section */}
-                <View>
+                <View className="z-30">
                     <View className="flex-row items-center gap-2 mb-2">
                         <View className="w-[31px] h-[31px] bg-[#F0F2FC] rounded-[5px] items-center justify-center">
                             <Icon as={ClipboardList} className="text-primary" size={18} />
@@ -108,16 +101,57 @@ export const PatientDetailsCard = ({ patientName = "Rohan Sharma" }: { patientNa
                     </View>
                     <View className="pl-[39px]">
                         <Text className="text-[11px] text-text-header font-inter mb-2">Common Cold, Mild Fever</Text>
-                        <View className="items-center self-start gap-1">
-                            <TouchableOpacity className="w-[30px] h-[30px] bg-primary rounded-full items-center justify-center">
-                                <Icon as={Plus} className="text-white" size={16} />
+                        <View className="flex-row items-center gap-4 mt-2">
+                            <View className="items-center gap-1 relative z-40">
+                                <TouchableOpacity
+                                    className="w-[30px] h-[30px] bg-primary rounded-full items-center justify-center"
+                                    onPress={handleOpenUpload}
+                                >
+                                    <Icon as={Plus} className="text-white" size={16} />
+                                </TouchableOpacity>
+                                <Text className="text-[8px] text-text-secondary font-medium font-inter">Add Prescription</Text>
+                            </View>
+
+                            <TouchableOpacity className="items-center gap-1">
+                                <View className="w-[30px] h-[30px] bg-white border border-primary rounded-full items-center justify-center">
+                                    <Icon as={FileText} className="text-primary" size={16} />
+                                </View>
+                                <Text className="text-[8px] text-text-secondary font-inter">Transcript</Text>
                             </TouchableOpacity>
-                            <Text className="text-[8px] text-text-secondary font-medium font-inter">Add Prescription</Text>
+
+                            <TouchableOpacity className="items-center gap-1">
+                                <View className="w-[30px] h-[30px] bg-white border border-primary rounded-full items-center justify-center">
+                                    <Icon as={Search} className="text-primary" size={16} />
+                                </View>
+                                <Text className="text-[8px] text-text-secondary font-inter">Analysis</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>
 
             </View>
+
+            {/* Upload Modal */}
+            <Modal
+                transparent={true}
+                visible={isUploadVisible}
+                onRequestClose={() => setIsUploadVisible(false)}
+                animationType="fade"
+            >
+                <TouchableOpacity
+                    className="flex-1 bg-black/50 justify-center items-center"
+                    activeOpacity={1}
+                    onPress={() => setIsUploadVisible(false)}
+                >
+                    {/* Stop propagation of press to prevent closing when clicking inside content */}
+                    <TouchableOpacity activeOpacity={1}>
+                        <PrescriptionUpload
+                            onSubmit={handlePrescriptionSubmit}
+                            onCancel={() => setIsUploadVisible(false)}
+                        />
+                    </TouchableOpacity>
+                </TouchableOpacity>
+            </Modal>
         </View>
     );
 };
