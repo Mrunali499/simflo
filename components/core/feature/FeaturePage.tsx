@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 export const FeaturePage = () => {
     const [selectedFilter, setSelectedFilter] = useState('My Clinic');
-    const [isReviewEnabled, setIsReviewEnabled] = useState(false);
+    const [isOpdMode, setIsOpdMode] = useState(false);
 
     return (
         <View className="flex-1 bg-white">
@@ -13,8 +13,8 @@ export const FeaturePage = () => {
                 headerRight={
                     selectedFilter === 'My Clinic' ? (
                         <ToggleSwitch
-                            checked={isReviewEnabled}
-                            onCheckedChange={setIsReviewEnabled}
+                            checked={isOpdMode}
+                            onCheckedChange={setIsOpdMode}
                         />
                     ) : undefined
                 }
