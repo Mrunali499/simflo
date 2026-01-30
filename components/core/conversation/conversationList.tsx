@@ -8,14 +8,15 @@ interface ChatListItemProps {
     time: string;
     unreadCount?: number;
     onPress?: () => void;
+    avatar?: React.ReactNode;
 }
 
-export const ChatListItem = ({ name, message, time, unreadCount, onPress }: ChatListItemProps) => {
+export const ChatListItem = ({ name, message, time, unreadCount, onPress, avatar }: ChatListItemProps) => {
     return (
         <TouchableOpacity onPress={onPress} className="flex-row items-center pt-[8px] pb-[12px] px-4 gap-3 w-full border-b border-chat-border">
             {/* Avatar */}
-            <View className="w-12 h-12 rounded-full overflow-hidden">
-                <ProfilePhoto width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+            <View className="w-12 h-12 rounded-full overflow-hidden items-center justify-center">
+                {avatar ? avatar : <ProfilePhoto width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />}
             </View>
 
             <View className="flex-1">
@@ -55,6 +56,7 @@ export const ConversationList = ({ data, onItemPress }: ConversationListProps) =
                     time={item.time}
                     unreadCount={item.unreadCount}
                     onPress={() => onItemPress?.(item)}
+                    avatar={item.avatar}
                 />
             ))}
         </ScrollView>
