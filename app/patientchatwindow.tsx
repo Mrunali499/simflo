@@ -19,6 +19,7 @@ export default function PatientChatWindow() {
     const { name } = useLocalSearchParams<{ name: string }>();
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState<Message[]>([]);
+    const [showPatientDetails, setShowPatientDetails] = useState(false);
 
     const handleSendMessage = () => {
         if (message.trim()) {
@@ -46,8 +47,11 @@ export default function PatientChatWindow() {
                     className="flex-1 px-4 pt-4"
                     contentContainerStyle={{ gap: 16 }}
                 >
-                    <PatientView />
-                    <PatientDetailsCard patientName={name} />
+                    {!showPatientDetails ? (
+                        <PatientView onComplete={() => setShowPatientDetails(true)} />
+                    ) : (
+                        <PatientDetailsCard patientName={name} />
+                    )}
                     {messages.map((msg) => (
                         msg.isSender ? (
                             <SenderTextmsg

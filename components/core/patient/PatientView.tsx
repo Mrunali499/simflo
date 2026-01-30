@@ -8,7 +8,7 @@ import { TouchableOpacity, View } from 'react-native';
 
 const SIMULATED_TEXT = "I have been feeling a mild fever since yesterday evening, accompanied by a headache and some fatigue. I took a paracetamol last night but the fever persists.";
 
-export const PatientView = () => {
+export const PatientView = ({ onComplete }: { onComplete?: () => void }) => {
     const [step, setStep] = useState<'START' | 'NAME' | 'RECORDING' | 'SUCCESS'>('START');
     const [patientName, setPatientName] = useState('');
     const [transcribedText, setTranscribedText] = useState('');
@@ -21,6 +21,15 @@ export const PatientView = () => {
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
     }, []);
+
+    useEffect(() => {
+        if (step === 'SUCCESS' && onComplete) {
+            const timer = setTimeout(() => {
+                onComplete();
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [step, onComplete]);
 
     const handleStartRecording = () => {
         if (!patientName.trim()) return;
@@ -152,15 +161,7 @@ export const PatientView = () => {
                     </Text>
                 </View>
 
-                <TouchableOpacity
-                    onPress={() => {
-                        setStep('START');
-                        setPatientName('');
-                    }}
-                    className="bg-primary px-6 py-2.5 rounded-full"
-                >
-                    <Text className="text-white font-medium text-xs font-inter">Submit Another Report</Text>
-                </TouchableOpacity>
+
             </View>
         );
     }
