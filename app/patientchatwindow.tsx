@@ -2,6 +2,7 @@ import { BottomActionBar } from '@/components/core/chatwindow/BottomActionBar';
 import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
 import { SenderTextmsg } from '@/components/core/mysociety/SenderTextmsg';
 import { Textmsg } from '@/components/core/mysociety/Textmsg';
+import { PatientDetailsCard } from '@/components/core/patient/PatientDetailsCard';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -44,6 +45,7 @@ export default function PatientChatWindow() {
                     className="flex-1 px-4 pt-4"
                     contentContainerStyle={{ gap: 16 }}
                 >
+                    <PatientDetailsCard patientName={name} />
                     {messages.map((msg) => (
                         msg.isSender ? (
                             <SenderTextmsg
