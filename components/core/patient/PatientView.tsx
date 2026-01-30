@@ -113,7 +113,7 @@ export const PatientView = ({ onComplete }: { onComplete?: () => void }) => {
                     Listening...
                 </Text>
 
-                <View className="min-h-[120px] bg-[var(--bg-card-neutral)] rounded-xl p-4 mb-6 border border-border-subtle">
+                <View className="min-h-[60px] bg-[var(--bg-card-neutral)] rounded-xl p-4 mb-6 border border-border-subtle">
                     <Text className="text-text-primary text-sm leading-6 font-inter">
                         {transcribedText}
                         <Text className="text-primary">|</Text>
