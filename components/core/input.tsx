@@ -18,6 +18,7 @@ export const Input = React.forwardRef<TextInput, InputProps>(
             containerClassName = '',
             labelClassName = '',
             inputClassName = '',
+            placeholderTextColor = '#BBBBBB',
             ...props
         },
         ref
@@ -37,9 +38,10 @@ export const Input = React.forwardRef<TextInput, InputProps>(
                 <TextInput
                     ref={ref}
                     className={cn(
-                        'font-inter w-full h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark placeholder:text-text-placeholder',
+                        'font-inter w-full h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark',
                         inputClassName
                     )}
+                    placeholderTextColor={placeholderTextColor}
                     {...props}
                 />
                 {error && (

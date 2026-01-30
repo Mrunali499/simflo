@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
-import { Input } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 import { Activity, Mic, Square } from 'lucide-react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
+import { Input } from '../input';
 
 const SIMULATED_TEXT = "I have been feeling a mild fever since yesterday evening, accompanied by a headache and some fatigue. I took a paracetamol last night but the fever persists.";
 
@@ -85,17 +85,14 @@ export const PatientView = ({ onComplete }: { onComplete?: () => void }) => {
                 </Text>
 
                 <View className="gap-4">
-                    <View>
-                        <Text className="text-[12px] font-medium text-text-secondary mb-1.5 font-inter">
-                            Patient Name
-                        </Text>
-                        <Input
-                            placeholder="Enter full name"
-                            value={patientName}
-                            onChangeText={setPatientName}
-                            className="bg-white h-11"
-                        />
-                    </View>
+                    <Input
+                        label="Patient Name"
+                        placeholder="Enter full name"
+                        value={patientName}
+                        onChangeText={setPatientName}
+                        inputClassName="bg-white h-11"
+                        labelClassName="text-[12px] font-medium text-text-secondary font-inter"
+                    />
 
                     <Button
                         onPress={handleStartRecording}
