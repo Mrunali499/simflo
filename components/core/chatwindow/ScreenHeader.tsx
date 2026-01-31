@@ -1,5 +1,6 @@
-import ThreeDotIcon from '@/assets/images/3dot_icon.svg';
 import ArrowBackIcon from '@/assets/images/arrow_back_icon.svg';
+import { Icon } from '@/components/ui/icon';
+import { MoreVertical } from 'lucide-react-native';
 import React from 'react';
 import { Platform, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -33,9 +34,12 @@ export function ScreenHeader({ title, onBackPress }: ScreenHeaderProps) {
                 </Text>
 
                 {/* Right Section: Menu Icon */}
-                <View className="items-center justify-center bg-search-bg w-[26px] h-6 rounded-[16px]">
-                    <ThreeDotIcon width={20} height={20} />
-                </View>
+                <TouchableOpacity
+                    activeOpacity={0.7}
+                    className="bg-search-bg rounded-full w-[26px] h-[24px] justify-center items-center"
+                >
+                    <Icon as={MoreVertical} className="text-gray-500" size={16} />
+                </TouchableOpacity>
             </View>
             {/* Bottom Border Line */}
             <View className="w-[372px] h-[1px] bg-border-subtle mx-auto" />

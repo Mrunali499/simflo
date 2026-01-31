@@ -3,8 +3,9 @@ import MicIcon from '@/assets/images/mic-icon.svg';
 import PlusIcon from '@/assets/images/plus-icon.svg';
 import PurplePlusIcon from '@/assets/images/purple-plus.svg';
 import React, { useState } from 'react';
-import { TextInput, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Input } from '../input';
 
 interface BottomActionBarProps {
     placeholder?: string;
@@ -51,17 +52,15 @@ export const BottomActionBar = ({
             </TouchableOpacity>
 
             {/* Message Input */}
-            <View className="flex-1 flex-row items-center justify-center h-[36px] bg-white rounded-[22px] px-[5px] gap-[9px] mr-3">
-                <TextInput
-                    className="flex-1 font-inter font-normal text-[14px] leading-[17px] text-text-dark"
-                    placeholder={placeholder}
-                    placeholderTextColor="var(--input-placeholder)"
-                    value={value}
-                    onChangeText={onChangeText}
-                    onSubmitEditing={onSubmitEditing}
-                    returnKeyType="send"
-                />
-            </View>
+            <Input
+                variant="chat"
+                containerClassName="flex-1 mr-3"
+                placeholder={placeholder}
+                value={value}
+                onChangeText={onChangeText}
+                onSubmitEditing={onSubmitEditing}
+                returnKeyType="send"
+            />
 
             {/* Camera Button */}
             <TouchableOpacity

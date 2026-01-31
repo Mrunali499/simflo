@@ -8,6 +8,7 @@ interface InputProps extends TextInputProps {
     containerClassName?: string;
     labelClassName?: string;
     inputClassName?: string;
+    variant?: 'default' | 'chat';
 }
 
 export const Input = React.forwardRef<TextInput, InputProps>(
@@ -18,13 +19,16 @@ export const Input = React.forwardRef<TextInput, InputProps>(
             containerClassName = '',
             labelClassName = '',
             inputClassName = '',
-            placeholderTextColor = '#BBBBBB',
+            placeholderTextColor,
+            variant = 'default',
             ...props
         },
         ref
     ) => {
+        const finalPlaceholderTextColor = placeholderTextColor ?? (variant === 'chat' ? '#676767' : '#BBBBBB');
+
         return (
-            <View className={`mb-4 ${containerClassName}`}>
+            <View className={cn(variant === 'default' ? 'mb-4' : 'mb-0', containerClassName)}>
                 {label && (
                     <Text
                         className={cn(
@@ -38,10 +42,13 @@ export const Input = React.forwardRef<TextInput, InputProps>(
                 <TextInput
                     ref={ref}
                     className={cn(
-                        'font-inter w-full h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px] text-text-dark',
+                        'font-inter w-full text-text-dark',
+                        variant === 'default'
+                            ? 'h-[46px] bg-white border border-border-default rounded-[9px] px-4 font-medium text-[13px] leading-[21px] tracking-[-0.32px]'
+                            : 'h-[36px] bg-white rounded-[22px] px-4 text-[14px]',
                         inputClassName
                     )}
-                    placeholderTextColor={placeholderTextColor}
+                    placeholderTextColor={finalPlaceholderTextColor}
                     {...props}
                 />
                 {error && (
