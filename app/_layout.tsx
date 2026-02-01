@@ -13,7 +13,11 @@ import {
 import { PortalHost } from '@rn-primitives/portal';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
+import { Provider } from 'react-redux';
+
+import { rootReducer } from 'simflo-backend/client';
+import { createClientStore } from 'syncflo/client';
 import '../global.css';
 
 // Keep the splash screen visible while we fetch resources
@@ -32,6 +36,17 @@ export default function RootLayout() {
         Inter_900Black,
     });
 
+    const userId = '1';
+    const store = useMemo(() => {
+        if (!userId) return null;
+        return createClientStore(rootReducer, {
+            socket: {
+                url: 'http://localhost:3001',
+                auth: { token: userId }
+            }
+        });
+    }, [userId]);
+
     useEffect(() => {
         if (fontsLoaded) {
             SplashScreen.hideAsync();
@@ -41,9 +56,10 @@ export default function RootLayout() {
     if (!fontsLoaded) {
         return null;
     }
-
     return (
-        <>
+        <>  
+         <Provider store={store}>
+
             <Stack>
                 <Stack.Screen name="index" options={{ headerShown: false }} />
                 <Stack.Screen name="chatwindow" options={{ headerShown: false }} />
@@ -52,6 +68,7 @@ export default function RootLayout() {
                 <Stack.Screen name="patientchatwindow" options={{ headerShown: false }} />
             </Stack>
             <PortalHost />
+        </Provider>
         </>
     );
 }

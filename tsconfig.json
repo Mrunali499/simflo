@@ -5,6 +5,21 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "simflo-backend/*": [
+        "../simflo-backend/*"
+      ],
+      "syncflo/*": [
+        "../syncflo/syncflo/*"
+      ],
+      "@features/*": [
+        "../simflo-backend/features/*"
+      ],
+      "@app/client/*": [
+        "../simflo-backend/client/*"
+      ],
+      "@app/server/*": [
+        "../simflo-backend/server/*"
       ]
     }
   },
