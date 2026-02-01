@@ -9,9 +9,10 @@ import { ScreenHeader } from '@/components/core/chatwindow/ScreenHeader';
 import { SenderTextmsg } from '@/components/core/mysociety/SenderTextmsg';
 import { Textmsg } from '@/components/core/mysociety/Textmsg';
 import { VisitorType, VisitorTypeCard } from '@/components/core/VisitorTypeCard';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
+import { api, useMutation, useQuery } from 'simflo-backend/client';
 
 interface Message {
     id: string;
@@ -29,9 +30,25 @@ const visitorTypes: VisitorType[] = [
 ];
 
 export default function ChatWindowPage() {
+    const { conversationId, name } = useLocalSearchParams<{ conversationId: string, name: string }>();
     const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState<Message[]>([]);
+    
+    // COMMENTED OUT: Local state
+    // const [messages, setMessages] = useState<Message[]>([]);
+    
     const [showVisitorTypeCard, setShowVisitorTypeCard] = useState(false);
+
+    // FETCH MESSAGES
+    const { data: serverMessages = [] } = useQuery(api.core.message.list, { conversationId });
+    const { mutate: sendMessage } = useMutation(api.core.message.send);
+
+    // Map server messages to UI format
+    const messages: Message[] = serverMessages.map((msg: any) => ({
+        id: msg.id,
+        text: msg.content,
+        timestamp: new Date(msg.createdAt),
+        isSender: msg.userId === '1', // Assuming '1' is current user
+    }));
 
     const handlePlusPress = () => {
         setShowVisitorTypeCard(!showVisitorTypeCard);
@@ -56,20 +73,24 @@ export default function ChatWindowPage() {
 
     const handleSendMessage = () => {
         if (message.trim()) {
-            const newMessage: Message = {
-                id: Date.now().toString(),
-                text: message.trim(),
-                timestamp: new Date(),
-                isSender: true,
-            };
-            setMessages([...messages, newMessage]);
+          
+            const tempId = `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
+            // NEW: Send via mutation
+            sendMessage({ 
+                id: crypto.randomUUID(),
+                conversationId, 
+                content: message.trim(), 
+                type: 'text', 
+                metadata: {} 
+            });
             setMessage('');
         }
     };
 
     return (
         <View className="flex-1 bg-white">
-            <ScreenHeader title={'Visitors'} onBackPress={() => router.back()} />
+            <ScreenHeader title={name || 'Chat'} onBackPress={() => router.back()} />
 
             {/* Chat Content Area */}
             <View className="flex-1">
