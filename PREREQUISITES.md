@@ -18,7 +18,7 @@ simflo-app/
 | Project | Branch |
 | :--- | :--- |
 | `simflo` (App) | `backend-integration` |
-| `simflo-backend` | `master` |
+| `simflo-backend` | `backend-integration` |
 | `syncflo` | `messaging` |
 
 Please ensure you are checked out to these specific branches to ensure compatibility.
@@ -37,7 +37,7 @@ The backend server must be running for the app to connect.
 
 ```bash
 cd simflo-backend
-git checkout master
+git checkout backend-integration
 npm install
 npm run server  # Starts the API server (default: http://localhost:3001)
 ```
