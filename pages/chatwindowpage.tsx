@@ -1,3 +1,4 @@
+import { useAuth } from '@/app/_layout';
 import BoxIcon from '@/assets/images/box.svg';
 import CalendarIcon from '@/assets/images/calendar_month.svg';
 import HandshakeIcon from '@/assets/images/handshake.svg';
@@ -32,6 +33,7 @@ const visitorTypes: VisitorType[] = [
 export default function ChatWindowPage() {
     const { conversationId, name } = useLocalSearchParams<{ conversationId: string, name: string }>();
     const [message, setMessage] = useState('');
+    const { user } = useAuth()!;
     
     // COMMENTED OUT: Local state
     // const [messages, setMessages] = useState<Message[]>([]);
@@ -47,7 +49,7 @@ export default function ChatWindowPage() {
         id: msg.id,
         text: msg.content,
         timestamp: new Date(msg.createdAt),
-        isSender: msg.userId === '1', // Assuming '1' is current user
+        isSender: msg.senderId === user, 
     }));
 
     const handlePlusPress = () => {
@@ -82,6 +84,7 @@ export default function ChatWindowPage() {
                 conversationId, 
                 content: message.trim(), 
                 type: 'text', 
+                appType: 'message',
                 metadata: {} 
             });
             setMessage('');
